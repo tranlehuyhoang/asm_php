@@ -127,8 +127,8 @@ class user
         if ($result) {
             if ($result && $result->num_rows > 0) {
                 while ($resultss = $result->fetch_assoc()) {
-                    $_SESSION['userid'] = $resultss['userid'];
                     if ($resultss['userroles'] == 2) {
+                        $_SESSION['useradmin'] = $resultss['userid'];
                         header('Location:page/home.php');
                     }
                 }
@@ -143,6 +143,7 @@ class user
     }
     public function logout()
     {
+        unset($_SESSION['useradmin']);
         unset($_SESSION['userid']);
     }
     public function loginuser($data)

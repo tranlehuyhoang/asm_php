@@ -7,6 +7,11 @@ $code = new user();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $codeinsert = $code->loginuser($_POST);
 }
+
+if (isset($_SESSION['userid'])) {
+    echo "<script>location.href = 'page/home.php';</script>";
+} else {
+}
 ?>
 <div class="main-content-wrapper">
     <div class="login-register-area">

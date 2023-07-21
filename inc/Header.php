@@ -18,6 +18,8 @@ $logout = new user();
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     $logout->logout();
 }
+
+
 ?>
 
 <!doctype html>
@@ -36,7 +38,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <title>PS26819 - Luxury Store </title>
 
     <!-- ************************* CSS Files ************************* -->
-    <base href="http://localhost/asm/">
+    <base href="http://localhost/asmnew/">
     <!-- Bootstrap CSS -->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
@@ -133,18 +135,42 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="user-info header-top-nav__item">
-                                    <div class="dropdown header-top__dropdown">
-                                        <a class="dropdown-toggle" id="userID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            My Account
-                                            <i class="fa fa-angle-down"></i>
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="userID">
-                                            <a class="dropdown-item" href="page/register_login.php">Register</a>
-                                            <a class="dropdown-item" href="page/register_login.php">Log In</a>
+
+                                <?php
+                                if (isset($_SESSION['userid'])) {
+                                ?>
+                                    <div class="user-info header-top-nav__item">
+                                        <div class="dropdown header-top__dropdown">
+                                            <a class="dropdown-toggle" href="page/myaccount.php" id="userID">
+                                                My Account
+
+                                            </a>
+
                                         </div>
                                     </div>
-                                </div>
+                                <?php
+                                } else {
+
+                                ?>
+                                    <div class="user-info header-top-nav__item">
+                                        <div class="dropdown header-top__dropdown">
+                                            <a class="dropdown-toggle" id="userID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                My Account
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="userID">
+                                                <a class="dropdown-item" href="page/register_login.php">Register</a>
+                                                <a class="dropdown-item" href="page/register_login.php">Log In</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
+                                }
+                                ?>
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -272,19 +298,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                     <li class="mainmenu__item">
                                         <a href="page/blog.php" class="mainmenu__link">Blog</a>
                                     </li>
-                                    <li class="mainmenu__item menu-item-has-children has-children">
-                                        <a href="page/home.php" class="mainmenu__link">Pages</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="page/cart.php">Cart</a></li>
-                                            <li><a href="page/checkout.php">Checkout</a></li>
-                                            <li><a href="page/compare.php">compare</a></li>
-                                            <li><a href="page/wishlist.php">wishlist</a></li>
-                                            <li><a href="page/myaccount.php ">my account</a></li>
-                                            <li><a href="page/page404.php">404</a></li>
-                                            <li><a href="page/faq.php">Faq</a></li>
-                                            <li><a href="page/register_login.php">Login Register</a></li>
-                                        </ul>
-                                    </li>
+
                                     <li class="mainmenu__item">
                                         <a href="page/aboutus.php" class="mainmenu__link">About Us</a>
                                     </li>
