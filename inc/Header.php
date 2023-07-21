@@ -19,6 +19,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     $logout->logout();
 }
 
+$class = new cart();
+if (isset($_SESSION['userid'])) {
+    $show = $class->show_cart_user($_SESSION['userid']);
+    $show1 = $class->show_cart_user($_SESSION['userid']);
+    $show2 = $class->show_cart_user($_SESSION['userid']);
+    $show3 = $class->show_cart_user($_SESSION['userid']);
+}
 
 ?>
 
@@ -40,7 +47,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <!-- ************************* CSS Files ************************* -->
     <base href="http://localhost/asmnew/">
     <!-- Bootstrap CSS -->
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+        type='text/css'>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
 
     <!-- Font Awesome CSS -->
@@ -78,27 +86,32 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                         <div class="col-lg-8 d-flex align-items-center flex-column flex-lg-row">
                             <ul class="social social-round mr--20">
                                 <li class="social__item">
-                                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social__link">
+                                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+                                        class="social__link">
                                         <i class="fa fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li class="social__item">
-                                    <a href="https://plus.google.com" target="_blank" rel="noopener noreferrer" class="social__link">
+                                    <a href="https://plus.google.com" target="_blank" rel="noopener noreferrer"
+                                        class="social__link">
                                         <i class="fa fa-google-plus"></i>
                                     </a>
                                 </li>
                                 <li class="social__item">
-                                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social__link">
+                                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                                        class="social__link">
                                         <i class="fa fa-facebook"></i>
                                     </a>
                                 </li>
                                 <li class="social__item">
-                                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social__link">
+                                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
+                                        class="social__link">
                                         <i class="fa fa-youtube"></i>
                                     </a>
                                 </li>
                                 <li class="social__item">
-                                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social__link">
+                                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                                        class="social__link">
                                         <i class="fa fa-instagram"></i>
                                     </a>
                                 </li>
@@ -111,20 +124,24 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                             <div class="header-top-nav d-flex justify-content-lg-end justify-content-center">
                                 <div class="language-selector header-top-nav__item">
                                     <div class="dropdown header-top__dropdown">
-                                        <a class="dropdown-toggle" id="languageID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a class="dropdown-toggle" id="languageID" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
                                             EN-GB
                                             <i class="fa fa-angle-down"></i>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="languageID">
-                                            <a class="dropdown-item" href="page/home.php"><img src="assets/img/header/1.jpg" alt="English"> English</a>
-                                            <a class="dropdown-item" href="page/home.php"><img src="assets/img/header/2.jpg" alt="Français"> Français</a>
+                                            <a class="dropdown-item" href="page/home.php"><img
+                                                    src="assets/img/header/1.jpg" alt="English"> English</a>
+                                            <a class="dropdown-item" href="page/home.php"><img
+                                                    src="assets/img/header/2.jpg" alt="Français"> Français</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="currency-selector header-top-nav__item">
                                     <div class="dropdown header-top__dropdown">
 
-                                        <a class="dropdown-toggle" id="currencyID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a class="dropdown-toggle" id="currencyID" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
                                             USD
                                             <i class="fa fa-angle-down"></i>
                                         </a>
@@ -139,31 +156,32 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                 <?php
                                 if (isset($_SESSION['userid'])) {
                                 ?>
-                                    <div class="user-info header-top-nav__item">
-                                        <div class="dropdown header-top__dropdown">
-                                            <a class="dropdown-toggle" href="page/myaccount.php" id="userID">
-                                                My Account
+                                <div class="user-info header-top-nav__item">
+                                    <div class="dropdown header-top__dropdown">
+                                        <a class="dropdown-toggle" href="page/myaccount.php" id="userID">
+                                            My Account
 
-                                            </a>
+                                        </a>
 
-                                        </div>
                                     </div>
+                                </div>
                                 <?php
                                 } else {
 
                                 ?>
-                                    <div class="user-info header-top-nav__item">
-                                        <div class="dropdown header-top__dropdown">
-                                            <a class="dropdown-toggle" id="userID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                My Account
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="userID">
-                                                <a class="dropdown-item" href="page/register_login.php">Register</a>
-                                                <a class="dropdown-item" href="page/register_login.php">Log In</a>
-                                            </div>
+                                <div class="user-info header-top-nav__item">
+                                    <div class="dropdown header-top__dropdown">
+                                        <a class="dropdown-toggle" id="userID" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            My Account
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="userID">
+                                            <a class="dropdown-item" href="page/register_login.php">Register</a>
+                                            <a class="dropdown-item" href="page/register_login.php">Log In</a>
                                         </div>
                                     </div>
+                                </div>
                                 <?php
                                 }
                                 ?>
@@ -194,7 +212,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                             <div class="header-toolbar">
                                 <div class="search-form-wrapper search-hide">
                                     <form action="#" class="search-form">
-                                        <input type="text" name="search" id="search" class="search-form__input" placeholder="Search entire store here..">
+                                        <input type="text" name="search" id="search" class="search-form__input"
+                                            placeholder="Search entire store here..">
                                         <button type="submit" class="search-form__submit">
                                             <i class="fa fa-search"></i>
                                         </button>
@@ -208,43 +227,96 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                     <li class="mini-cart-icon">
                                         <div class="mini-cart mini-cart--1">
                                             <a class="mini-cart__dropdown-toggle bordered-icon" id="cartDropdown">
-                                                <span class="mini-cart__count">0</span>
+                                                <?php
+                                                if (isset($show2)) {
+                                                    if ($show2 && $show2->num_rows > 0) {
+                                                        $i = 0;
+                                                        $z = 0;
+                                                        while ($result = $show2->fetch_assoc()) {
+                                                            $z  ++;
+                                                        }
+                                                        # code...
+                                                ?>
+                                                <span class="mini-cart__count"> <?php echo ($z) ?></span>
+                                                <?php
+                                                        $i++;
+                                                    } else {
+                                                    ?>
+                                                <?php
+                                                    }
+                                                }
+                                                ?>
                                                 <i class=" fa fa-shopping-cart mini-cart__icon"></i>
-                                                <span class="mini-cart__ammount">80.00 <i class="fa fa-angle-down"></i></span>
+                                                <?php
+                                                if (isset($show1)) {
+                                                    if ($show1 && $show1->num_rows > 0) {
+                                                        $i = 0;
+                                                        $z = 0;
+                                                        while ($result = $show1->fetch_assoc()) {
+                                                            $z +=  (($result['productprice']  - ($result['productprice'] * $result['productsale'] / 100))  * $result['cartquantity']);
+                                                        }
+                                                        # code...
+                                                ?>
+
+                                                <span class="mini-cart__ammount">$
+                                                    <?php echo number_format($z) ?>.00 <i
+                                                        class="fa fa-angle-down"></i></span>
+
+                                                <?php
+                                                        $i++;
+                                                    } else {
+                                                    ?>
+                                                <?php
+                                                    }
+                                                }
+                                                ?>
                                             </a>
                                             <div class="mini-cart__dropdown-menu">
                                                 <div class="mini-cart__content" id="miniCart">
                                                     <div class="mini-cart__item">
+
+                                                        <?php
+                                                        if (isset($show)) {
+                                                            if ($show && $show->num_rows > 0) {
+                                                                $i = 0;
+                                                                while ($result = $show->fetch_assoc()) {
+                                                                    # code...
+                                                        ?>
                                                         <div class="mini-cart__item--single">
                                                             <div class="mini-cart__item--image">
-                                                                <img src="assets/img/products/1-1-450x450.jpg" alt="product">
+                                                                <img src="<?php echo 'data:image/png;base64,' . base64_encode($result['productimg']); ?>"
+                                                                    alt="product">
                                                             </div>
                                                             <div class="mini-cart__item--content">
-                                                                <h4 class="mini-cart__item--name"><a href="product-details.html">Dell Inspiron 24</a>
+                                                                <h4 class="mini-cart__item--name"><a
+                                                                        href="product-details.html"><?php echo $result['productname'] ?></a>
                                                                 </h4>
-                                                                <p class="mini-cart__item--quantity">x1</p>
-                                                                <p class="mini-cart__item--price">$100.00</p>
+                                                                <p class="mini-cart__item--quantity">
+                                                                    x<?php echo $result['cartquantity'] ?></p>
+                                                                <p class="mini-cart__item--price">
+                                                                    $<?php echo number_format($result['productprice']  - ($result['productprice'] * $result['productsale'] / 100)) ?>.00
+                                                                </p>
                                                             </div>
-                                                            <a class="mini-cart__item--remove" href="page/home.php"><i class="icon_close"></i></a>
+
                                                         </div>
-                                                        <div class="mini-cart__item--single">
-                                                            <div class="mini-cart__item--image">
-                                                                <img src="assets/img/products/2-2-450x450.jpg" alt="product">
-                                                            </div>
-                                                            <div class="mini-cart__item--content">
-                                                                <h4 class="mini-cart__item--name"><a href="product-details.html">Acer Aspire AIO
-                                                                        <br>-<small>Color Swatch Black</small></a> </h4>
-                                                                <p class="mini-cart__item--quantity">x1</p>
-                                                                <p class="mini-cart__item--price">$100.00</p>
-                                                            </div>
-                                                            <a class="mini-cart__item--remove" href="page/home.php"><i class="icon_close"></i></a>
-                                                        </div>
+
+                                                        <?php
+                                                                    $i++;
+                                                                }
+                                                            } else {
+                                                                ?>
+                                                        <?php
+                                                            }
+                                                        }
+                                                        ?>
+
                                                     </div>
                                                     <div class="mini-cart__calculation">
                                                         <p>
                                                             <span class="mini-cart__calculation--item">Sub-Total
                                                                 :</span>
-                                                            <span class="mini-cart__calculation--ammount">$1,070.00</span>
+                                                            <span
+                                                                class="mini-cart__calculation--ammount">$1,070.00</span>
                                                         </p>
                                                         <p>
                                                             <span class="mini-cart__calculation--item">Eco Tax (-2.00)
@@ -264,9 +336,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                                         </p>
                                                     </div>
                                                     <div class="mini-cart__btn">
-                                                        <a href="page/cart.php" class="btn btn-fullwidth btn-style-1">View
+                                                        <a href="page/cart.php"
+                                                            class="btn btn-fullwidth btn-style-1">View
                                                             Cart</a>
-                                                        <a href="page/checkout.php" class="btn btn-fullwidth btn-style-1">Checkout</a>
+                                                        <a href="page/checkout.php"
+                                                            class="btn btn-fullwidth btn-style-1">Checkout</a>
                                                     </div>
 
                                                 </div>

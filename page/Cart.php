@@ -1,5 +1,20 @@
 <?php
 include '../inc/Header.php';
+
+$class = new cart();
+if (isset($_SESSION['userid'])) {
+    $show = $class->show_cart_user($_SESSION['userid']);
+}
+
+
+
+if (isset($_GET['delid'])) {
+    $delid = $_GET['delid'];
+    $delete = $class->delete_cart($delid);
+    if (isset($_SESSION['userid'])) {
+        $show = $class->show_cart_user($_SESSION['userid']);
+    }
+}
 ?>
 <div class="breadcrumb-area">
     <div class="container">
@@ -35,46 +50,53 @@ include '../inc/Header.php';
                                         </tr>
                                     </thead>
                                     <tbody>
+
+                                        <?php
+                                        if (isset($show)) {
+                                            if ($show && $show->num_rows > 0) {
+                                                $i = 0;
+                                                while ($result = $show->fetch_assoc()) {
+                                                    # code...
+                                        ?>
                                         <tr>
-                                            <td><a class="delete" href="#"><i class="fa fa-times"></i></a></td>
+                                            <td><a onclick="return confirm('Xác nhận xóa')"
+                                                    href="page/cart.php?delid=<?php echo $result['cartid']; ?>"
+                                                    class="delete" href="#"><i class="fa fa-times"></i></a></td>
                                             <td>
                                                 <a href="product-details.html">
-                                                    <img src="assets/img/products/1-450x450.jpg" alt="product">
+                                                    <img src="<?php echo 'data:image/png;base64,' . base64_encode($result['productimg']); ?>"
+                                                        alt="product">
                                                 </a>
                                             </td>
                                             <td class="wide-column">
-                                                <h3><a href="product-details.html">Egestas dapibus</a></h3>
+                                                <h3><a
+                                                        href="product-details.html"><?php echo $result['productname'] ?></a>
+                                                </h3>
                                             </td>
-                                            <td class="cart-product-price"><strong>$28.00</strong></td>
+                                            <td class="cart-product-price">
+                                                <strong>$<?php echo number_format($result['productprice']  - ($result['productprice'] * $result['productsale'] / 100)) ?>.00</strong>
+                                            </td>
                                             <td>
                                                 <div class="quantity">
-                                                    <input type="number" class="quantity-input" name="qty" id="pro_qty" value="1" min="1">
+                                                    <input type="number" class="quantity-input" name="qty" id="pro_qty"
+                                                        value="<?php echo $result['cartquantity'] ?>" min="1">
                                                     <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
                                                     <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                                                 </div>
                                             </td>
-                                            <td class="cart-product-price"><strong>$28.00</strong></td>
+                                            <td class="cart-product-price">
+                                                <strong>$<?php echo number_format(($result['productprice']  - ($result['productprice'] * $result['productsale'] / 100))  * $result['cartquantity']) ?>.00</strong>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td><a class="delete" href="#"><i class="fa fa-times"></i></a></td>
-                                            <td>
-                                                <a href="product-details.html">
-                                                    <img src="assets/img/products/1-1-450x450.jpg" alt="product">
-                                                </a>
-                                            </td>
-                                            <td class="wide-column">
-                                                <h3><a href="product-details.html">Neque porttitor</a></h3>
-                                            </td>
-                                            <td class="cart-product-price"><strong>$28.00</strong></td>
-                                            <td>
-                                                <div class="quantity">
-                                                    <input type="number" class="quantity-input" name="qty" id="qty1" value="1">
-                                                    <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                </div>
-                                            </td>
-                                            <td class="cart-product-price"><strong>$28.00</strong></td>
-                                        </tr>
+                                        <?php
+                                                    $i++;
+                                                }
+                                            } else {
+                                                ?>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -83,7 +105,8 @@ include '../inc/Header.php';
                                 <div class="col-12">
                                     <div class="apply-coupon-wrapper">
                                         <div class="form__group d-flex justify-content-between align-items-center">
-                                            <input type="text" name="coupon" id="coupon" class="form__input form__input--2" placeholder="Coupon Code">
+                                            <input type="text" name="coupon" id="coupon"
+                                                class="form__input form__input--2" placeholder="Coupon Code">
                                             <button type="submit" class="btn btn-medium btn-style-3">Apply
                                                 Coupon</button>
                                         </div>
@@ -117,8 +140,10 @@ include '../inc/Header.php';
                                             <td>
                                                 Flat Rate: <span class="price-ammount">$5.00</span>
                                                 <a href="#" class="expand-calculator">Calculate Shipping</a>
-                                                <form action="#" id="shipping-calculator" class="form shipping-form hide-in-default">
-                                                    <select name="shipping_country" id="shipping_country" class="form__input form__input--2">
+                                                <form action="#" id="shipping-calculator"
+                                                    class="form shipping-form hide-in-default">
+                                                    <select name="shipping_country" id="shipping_country"
+                                                        class="form__input form__input--2">
                                                         <option value="">Select a country…</option>
                                                         <option value="AF">Afghanistan</option>
                                                         <option value="AL">Albania</option>
@@ -167,8 +192,11 @@ include '../inc/Header.php';
                                                         <option value="GB">United Kingdom (UK)</option>
                                                         <option value="US">United States (US)</option>
                                                     </select>
-                                                    <input type="text" name="shipping_state" id="shipping_state" class="form__input form__input--2" placeholder="State / Country">
-                                                    <input type="text" name="shipping_zip" id="shipping_zip" class="form__input form__input--2" placeholder="Postcode / Zip">
+                                                    <input type="text" name="shipping_state" id="shipping_state"
+                                                        class="form__input form__input--2"
+                                                        placeholder="State / Country">
+                                                    <input type="text" name="shipping_zip" id="shipping_zip"
+                                                        class="form__input form__input--2" placeholder="Postcode / Zip">
                                                     <button type="submit" class="btn btn-medium btn-style-3">Update
                                                         Totals</button>
                                                 </form>

@@ -133,4 +133,17 @@ class cart
 
         return $result;
     }
+    public function show_cart_user($id)
+    {
+        $query = "SELECT c.*, p.*, u.*, cat.*
+        FROM tbl_cart c
+        INNER JOIN tbl_products p ON c.cartproductid = p.productid
+        INNER JOIN tbl_users u ON c.cartuserid = u.userid
+        INNER JOIN tbl_category cat ON p.productcat = cat.categoryid 
+        WHERE c.cartuserid = '$id'
+        ORDER BY c.cartid DESC;";
+        $result = $this->db->select($query);
+
+        return $result;
+    }
 }
