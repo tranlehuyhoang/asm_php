@@ -44,22 +44,13 @@ class order
             $arlet = "<div class='alert alert-danger' role='alert'>Code must not be empty</div>";
             return $arlet;
         } else {
-            $queryss = "UPDATE tbl_products p
-        INNER JOIN tbl_cart c
-            ON p.productid = c.cartproductid
-        SET p.productquantitysell = p.productquantitysell + c.cartquantity,
-            p.productstock = p.productstock - c.cartquantity
-        WHERE c.cartcheck = 1 ;
-        ";
-            $resultss = $this->db->update($queryss);
-            $queryssaa = "UPDATE tbl_cart SET cartcheck = 2 WHERE cartuserid = '$id' AND cartcheck = 1; ";
-            $resultsssss = $this->db->update($queryssaa);
+
             $query = "INSERT INTO tbl_orders(orderstatus,orderuserid,orderprice) VALUES ('$orderstatus','$orderuserid','$orderprice')";
             $result = $this->db->insert($query);
             if ($result) {
-
                 $query = "UPDATE tbl_cart SET cartstatus = '2', cartcheck = '1' WHERE cartuserid = '$id'";
                 $result = $this->db->update($query);
+
                 $arlet = "<div class='alert alert-success' role='alert'>Insert Code Successfully</div>";
                 return $arlet;
             } else {
@@ -67,6 +58,24 @@ class order
                 return $arlet;
             }
         }
+    }
+    public function add_order1()
+    {
+
+
+        $query = "UPDATE tbl_products p
+                INNER JOIN tbl_cart c
+                    ON p.productid = c.cartproductid
+                SET p.productquantitysell = p.productquantitysell + c.cartquantity,
+                    p.productstock = p.productstock - c.cartquantity
+                WHERE c.cartcheck = '1' ;
+                ";
+        $result = $this->db->update($query);
+    }
+    public function add_order2($id)
+    {
+        $query = "UPDATE tbl_cart SET cartcheck = '2' WHERE cartuserid = '$id' AND cartcheck = '1'; ";
+        $result = $this->db->update($query);
     }
 
     public function show_order()

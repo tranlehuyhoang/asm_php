@@ -16,6 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['codename'])) {
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
     $codeinsertssss = $orrrder->add_order($_POST, $_SESSION['userid']);
+    $s = $orrrder->add_order1();
+    $s = $orrrder->add_order2($_SESSION['userid']);
 }
 ?>
 <div class="breadcrumb-area">
