@@ -16,7 +16,7 @@ class order
     public function insert_order($data)
     {
         $orderstatus = mysqli_real_escape_string($this->db->link, $data['orderstatus']);
-        $orderuserid = mysqli_real_escape_string($this->db->link, $data['orderuserid']);
+        $orderuserid =   mysqli_real_escape_string($this->db->link, $data['orderuserid']);
         $orderprice = mysqli_real_escape_string($this->db->link, $data['orderprice']);
 
         if ($orderstatus == '' || $orderuserid == '' || $orderprice == '') {
@@ -34,12 +34,47 @@ class order
             }
         }
     }
+    public function add_order($data, $id)
+    {
+        $orderstatus = 1;
+        $orderuserid = mysqli_real_escape_string($this->db->link, $id);
+        $orderprice = mysqli_real_escape_string($this->db->link, $data['orderprice']);
+
+        if ($orderstatus == '' || $orderuserid == '' || $orderprice == '') {
+            $arlet = "<div class='alert alert-danger' role='alert'>Code must not be empty</div>";
+            return $arlet;
+        } else {
+            $query = "INSERT INTO tbl_orders(orderstatus,orderuserid,orderprice) VALUES ('$orderstatus','$orderuserid','$orderprice')";
+            $result = $this->db->insert($query);
+            if ($result) {
+
+                $query = "UPDATE tbl_cart SET cartstatus = '2' WHERE cartuserid = '$id'";
+                $result = $this->db->update($query);
+                $arlet = "<div class='alert alert-success' role='alert'>Insert Code Successfully</div>";
+                return $arlet;
+            } else {
+                $arlet = "<div class='alert alert-danger' role='alert'>Insert Code Successfully</div>";
+                return $arlet;
+            }
+        }
+    }
 
     public function show_order()
     {
         $query = "SELECT tbl_orders.*,   tbl_users.*   
         FROM tbl_orders
         INNER JOIN tbl_users ON tbl_orders.orderuserid = tbl_users.userid
+        ORDER BY tbl_orders.orderid DESC;";
+        $result = $this->db->select($query);
+
+        return $result;
+    }
+    public function show_order_user($id)
+    {
+        $query = "SELECT tbl_orders.*,   tbl_users.*   
+        FROM tbl_orders
+        INNER JOIN tbl_users ON tbl_orders.orderuserid = tbl_users.userid
+        WHERE tbl_orders.orderuserid = '$id'
         ORDER BY tbl_orders.orderid DESC;";
         $result = $this->db->select($query);
 

@@ -50,7 +50,7 @@ class cart
             $arlet = "<div class='alert alert-danger' role='alert'>Code must not be empty</div>";
             return $arlet;
         } else {
-            $query = "SELECT * FROM tbl_cart WHERE cartproductid = '$cartproductid' AND cartuserid = '$cartuserid'";
+            $query = "SELECT * FROM tbl_cart WHERE cartproductid = '$cartproductid' AND cartuserid = '$cartuserid'  AND cartstatus = '1'";
             $result = $this->db->select($query);
 
             if ($result) {
@@ -140,7 +140,7 @@ class cart
         INNER JOIN tbl_products p ON c.cartproductid = p.productid
         INNER JOIN tbl_users u ON c.cartuserid = u.userid
         INNER JOIN tbl_category cat ON p.productcat = cat.categoryid 
-        WHERE c.cartuserid = '$id'
+        WHERE c.cartuserid = '$id' AND c.cartstatus = '1'
         ORDER BY c.cartid DESC;";
         $result = $this->db->select($query);
 

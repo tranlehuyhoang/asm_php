@@ -1,5 +1,11 @@
 <?php
 include '../inc/Header.php';
+$class = new order();
+if (isset($_SESSION['userid'])) {
+    # code...
+    $show = $class->show_order_user($_SESSION['userid']);
+}
+
 ?>
 <div class="breadcrumb-area">
     <div class="container">
@@ -50,20 +56,46 @@ include '../inc/Header.php';
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td class="wide-column">September 19, 2018</td>
-                                                <td>Processing</td>
-                                                <td class="wide-column">$25.00 for 1 item</td>
-                                                <td><a href="" class="btn btn-medium btn-style-1">View</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td class="wide-column">September 19, 2018</td>
-                                                <td>Processing</td>
-                                                <td class="wide-column">$25.00 for 1 item</td>
-                                                <td><a href="" class="btn btn-medium btn-style-1">View</a></td>
-                                            </tr>
+                                            <?php
+                                            if (isset($show)) {
+                                                if ($show && $show->num_rows > 0) {
+                                                    $i = 0;
+                                                    while ($result = $show->fetch_assoc()) {
+                                                        # code...
+
+                                            ?>
+
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td class="wide-column"><?php echo $result['orderdate']; ?></td>
+                                                            <?php
+                                                            if ($result['orderstatus'] == 1) {
+                                                            ?>
+                                                                <td><span class="badge bg-light text-dark">Chờ xác nhận</span></td>
+
+                                                            <?php
+
+                                                            } else {
+                                                            ?>
+                                                                <td><span class="badge bg-success-transparent">Thành công</span></td>
+
+                                                            <?php
+                                                            }
+
+                                                            ?>
+                                                            <td class="wide-column">
+                                                                $<?php echo number_format($result['orderprice']); ?>.00 </td>
+                                                            <td><a href="" class="btn btn-medium btn-style-1">View</a></td>
+                                                        </tr>
+                                                    <?php
+                                                        $i++;
+                                                    }
+                                                } else {
+                                                    ?>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

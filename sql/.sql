@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3309
--- Generation Time: Jul 19, 2023 at 03:21 PM
+-- Generation Time: Jul 22, 2023 at 08:26 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -96,7 +96,14 @@ CREATE TABLE `tbl_cart` (
 
 INSERT INTO `tbl_cart` (`cartid`, `cartproductid`, `cartsession`, `cartquantity`, `cartuserid`, `cartstatus`, `cartdate`) VALUES
 (2, 5, '1', 1, 1, 2, '2023-07-18 06:21:08'),
-(3, 3, '100', 100, 6, 1, '2023-07-18 06:21:14');
+(3, 3, '100', 100, 6, 1, '2023-07-18 06:21:14'),
+(15, 18, 'l9u45krmekjolhib99sv4kmfdv', 1, 15, 1, '2023-07-20 02:08:24'),
+(22, 17, 'tg5ikd1mm6kmslg4261vi6qtgk', 1, 17, 1, '2023-07-21 00:51:19'),
+(25, 18, 'ogs3e8sqtsvmv8ae2mtj7jmtio', 100, 12, 2, '2023-07-21 05:55:17'),
+(27, 4, 'rm3jc1os2hqe79n7cc346ropm2', 4, 12, 2, '2023-07-22 01:31:23'),
+(28, 14, '4ditvq9jgqkq54k7eisc39clk6', 100, 12, 2, '2023-07-22 06:00:56'),
+(29, 18, '4ditvq9jgqkq54k7eisc39clk6', 1, 12, 2, '2023-07-22 06:03:05'),
+(30, 17, '2624rqe50ne8rpbvddph63juhi', 1, 24, 1, '2023-07-22 06:19:52');
 
 -- --------------------------------------------------------
 
@@ -159,7 +166,9 @@ CREATE TABLE `tbl_compares` (
 INSERT INTO `tbl_compares` (`compareid`, `compareuserid`, `compareproductid`, `comparedate`) VALUES
 (18, 9, 5, '2023-07-18 01:12:56'),
 (19, 3, 3, '2023-07-18 01:12:58'),
-(20, 9, 4, '2023-07-18 05:39:26');
+(20, 9, 4, '2023-07-18 05:39:26'),
+(21, 15, 18, '2023-07-20 03:04:22'),
+(22, 15, 17, '2023-07-20 03:04:28');
 
 -- --------------------------------------------------------
 
@@ -181,8 +190,7 @@ CREATE TABLE `tbl_contacts` (
 INSERT INTO `tbl_contacts` (`contactid`, `contactuserid`, `contactdesc`, `contactdate`) VALUES
 (4, 8, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero.</p>\r\n', '2023-07-17 09:35:29'),
 (5, 3, '<p>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero.</p>\r\n', '2023-07-18 09:25:07'),
-(6, 8, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero.</p>\r\n', '2023-07-18 09:25:16'),
-(7, 1, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero.</p>\r\n', '2023-07-18 09:25:20');
+(6, 8, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero.</p>\r\n', '2023-07-18 09:25:16');
 
 -- --------------------------------------------------------
 
@@ -204,7 +212,15 @@ CREATE TABLE `tbl_orders` (
 
 INSERT INTO `tbl_orders` (`orderid`, `orderstatus`, `orderuserid`, `orderprice`, `orderdate`) VALUES
 (2, 2, 6, 2312434, '2023-07-18 07:52:16'),
-(3, 2, 9, 123123, '2023-07-18 07:50:04');
+(3, 2, 9, 123123, '2023-07-18 07:50:04'),
+(4, 1, 12, 44077, '2023-07-22 05:53:41'),
+(5, 1, 12, 44077, '2023-07-22 05:54:09'),
+(6, 1, 12, 44077, '2023-07-22 05:57:20'),
+(7, 1, 12, 35262, '2023-07-22 05:57:36'),
+(8, 1, 12, 845, '2023-07-22 06:01:15'),
+(9, 1, 12, 845, '2023-07-22 06:01:17'),
+(10, 1, 12, 8, '2023-07-22 06:03:53'),
+(11, 2, 12, 8, '2023-07-22 06:09:31');
 
 -- --------------------------------------------------------
 
@@ -286,7 +302,41 @@ INSERT INTO `tbl_reviews` (`reviewid`, `reviewuserid`, `reviewcontent`, `reviewr
 (3, 6, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adi', 5, 4, '2023-07-18 08:05:22'),
 (4, 8, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adi', 5, 3, '2023-07-18 08:06:05'),
 (5, 6, '<p><span class=\"marker\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tel', 1, 4, '2023-07-18 08:06:25'),
-(7, 13, '<p>123</p>\r\n', 5, 3, '2023-07-19 09:17:13');
+(7, 13, '<p>123</p>\r\n', 5, 3, '2023-07-19 09:17:13'),
+(8, 12, 'qrqewrrqew', 4, 18, '2023-07-20 08:32:48'),
+(9, 12, '213213213', 1, 18, '2023-07-20 08:34:01'),
+(10, 12, '213213213', 1, 18, '2023-07-20 08:34:05'),
+(11, 12, '213', 5, 18, '2023-07-20 08:34:14'),
+(12, 12, '213', 5, 18, '2023-07-20 08:34:38'),
+(13, 12, '132', 3, 18, '2023-07-20 08:34:50'),
+(14, 12, '132', 3, 18, '2023-07-20 08:34:54'),
+(15, 12, '132', 3, 18, '2023-07-20 08:35:55'),
+(16, 12, '132', 3, 18, '2023-07-20 08:36:36'),
+(17, 12, 'REVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISR', 1, 17, '2023-07-20 08:37:19'),
+(18, 12, 'REVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISR', 1, 17, '2023-07-20 08:37:23'),
+(19, 12, 'REVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISREVIEWS FOR ALIQUAM LOBORTISR', 1, 17, '2023-07-20 08:37:53'),
+(20, 12, '123', 5, 17, '2023-07-20 08:38:05'),
+(21, 12, '123', 5, 17, '2023-07-20 08:38:09'),
+(22, 12, '1', 5, 15, '2023-07-20 08:38:27'),
+(23, 12, '1', 5, 15, '2023-07-20 08:38:30'),
+(24, 12, '1', 5, 15, '2023-07-20 08:39:01'),
+(25, 12, '1', 5, 15, '2023-07-20 08:39:05'),
+(26, 12, '213123', 5, 16, '2023-07-21 01:36:46'),
+(27, 12, '213123', 5, 16, '2023-07-21 01:36:50'),
+(28, 12, '32434', 2, 16, '2023-07-21 01:36:58'),
+(29, 12, '32434', 2, 16, '2023-07-21 01:37:01'),
+(30, 12, '32434', 2, 16, '2023-07-21 01:37:35'),
+(31, 12, '32434', 2, 16, '2023-07-21 01:37:40'),
+(32, 12, '123123', 1, 16, '2023-07-21 01:37:58'),
+(33, 12, '5', 5, 16, '2023-07-21 01:41:06'),
+(34, 12, '5', 5, 16, '2023-07-21 01:41:21'),
+(35, 12, '5', 5, 16, '2023-07-21 01:41:39'),
+(36, 0, 'ưqerwqre', 4, 16, '2023-07-21 01:51:04'),
+(37, 0, 'ưqerwqre', 4, 16, '2023-07-21 01:51:06'),
+(38, 12, '5', 5, 5, '2023-07-21 05:56:20'),
+(39, 12, '1', 1, 5, '2023-07-21 05:56:29'),
+(40, 12, '1', 1, 4, '2023-07-21 06:18:25'),
+(41, 12, '1', 1, 4, '2023-07-21 06:35:00');
 
 -- --------------------------------------------------------
 
@@ -315,7 +365,14 @@ INSERT INTO `tbl_users` (`userid`, `userroles`, `useremail`, `userpass`, `userda
 (9, 1, '432343525@324324324', '9dd4e461268c8034f5c8564e155c67a6', '2023-07-18 00:57:11', '1@1'),
 (11, 2, 'admin@admin', 'a3175a452c7a8fea80c62a198a40f6c9', '2023-07-18 08:15:16', 'admin'),
 (12, 2, 'x@x', '9dd4e461268c8034f5c8564e155c67a6', '2023-07-18 08:38:33', 'x'),
-(13, 2, '2@2', 'c81e728d9d4c2f636f067f89cc14862c', '2023-07-18 09:23:55', '2508roblox');
+(13, 2, '2@2', 'c81e728d9d4c2f636f067f89cc14862c', '2023-07-18 09:23:55', '2508roblox'),
+(15, 1, '123@123', 'c4ca4238a0b923820dcc509a6f75849b', '2023-07-20 01:47:55', '2508robloxxxxxxxxxx'),
+(16, 1, '12@12', 'c20ad4d76fe97759aa27a0c99bff6710', '2023-07-20 08:52:56', '12'),
+(17, 1, '31@31', 'f80508d85f3b3c2e65426bf6c2c56155', '2023-07-21 00:47:46', '31@31'),
+(20, 1, '123123123', '9dd4e461268c8034f5c8564e155c67a6', '2023-07-22 06:18:14', '1@1'),
+(22, 1, 'feaewf@xn--ewf-ghz', '9dd4e461268c8034f5c8564e155c67a6', '2023-07-22 06:18:56', '1@1'),
+(23, 1, '2132@faewffff', '9dd4e461268c8034f5c8564e155c67a6', '2023-07-22 06:19:20', '1@1'),
+(24, 1, 'a@a', '4b9411a9b28f9063ea75e5fee24bb2a8', '2023-07-22 06:19:40', '1@1');
 
 -- --------------------------------------------------------
 
@@ -437,13 +494,13 @@ ALTER TABLE `tbl_blogs`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `cartid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cartid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `categoryid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `categoryid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_code`
@@ -455,7 +512,7 @@ ALTER TABLE `tbl_code`
 -- AUTO_INCREMENT for table `tbl_compares`
 --
 ALTER TABLE `tbl_compares`
-  MODIFY `compareid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `compareid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tbl_contacts`
@@ -467,7 +524,7 @@ ALTER TABLE `tbl_contacts`
 -- AUTO_INCREMENT for table `tbl_orders`
 --
 ALTER TABLE `tbl_orders`
-  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_products`
@@ -479,13 +536,13 @@ ALTER TABLE `tbl_products`
 -- AUTO_INCREMENT for table `tbl_reviews`
 --
 ALTER TABLE `tbl_reviews`
-  MODIFY `reviewid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `reviewid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tbl_wishlists`

@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['codename'])) {
     $codess = 0;
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
-    $codeinsertssss = $orrrder->insert_order($_POST['codename']);
+    $codeinsertssss = $orrrder->add_order($_POST, $_SESSION['userid']);
 }
 ?>
 <div class="breadcrumb-area">
@@ -41,7 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                         <div class="row">
                             <div class="col-12">
                                 <div class="user-actions__single user-actions__login">
-                                    <h3><i class="fa fa-cube"></i> Returning Customer? <span class="expand_action" data-attr="#checkout_login">Click here to login.</span></h3>
+                                    <h3><i class="fa fa-cube"></i> Returning Customer? <span class="expand_action"
+                                            data-attr="#checkout_login">Click here to login.</span></h3>
                                     <div id="checkout_login" class="user-actions__form hide-in-default">
                                         <div class="checkout-login__info">
                                             <p class="checkout-login__text">
@@ -53,17 +54,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                                 <div class="form__group">
                                                     <label class="form__label" for="login_email">Username Or Email
                                                         <sup>*</sup></label>
-                                                    <input type="email" name="login_email" id="login_email" class="form__input form__input--2">
+                                                    <input type="email" name="login_email" id="login_email"
+                                                        class="form__input form__input--2">
                                                 </div>
                                                 <div class="form__group">
                                                     <label class="form__label" for="login_password">Password
                                                         <sup>*</sup></label>
-                                                    <input type="password" name="login_password" id="login_password" class="form__input form__input--2">
+                                                    <input type="password" name="login_password" id="login_password"
+                                                        class="form__input form__input--2">
                                                 </div>
                                                 <div class="form__group d-flex align-items-center">
                                                     <button type="submit" class="btn btn-style-3">Login</button>
                                                     <div class="custom-checkbox ml--20">
-                                                        <input type="checkbox" name="sessionStore" id="sessionStore" class="form__checkbox">
+                                                        <input type="checkbox" name="sessionStore" id="sessionStore"
+                                                            class="form__checkbox">
                                                         <label for="sessionStore" class="form__checkbox--label">Remember
                                                             me</label>
                                                     </div>
@@ -74,11 +78,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                     </div>
                                 </div>
                                 <div class="user-actions__single user-actions__coupon">
-                                    <h3><i class="fa fa-cube"></i> Have A Coupon? <span class="expand_action" data-attr="#coupon_info">Click Here To Enter Your Code.</span></h3>
-                                    <div id="coupon_info" class="user-actions__form user-actions--coupon hide-in-default">
+                                    <h3><i class="fa fa-cube"></i> Have A Coupon? <span class="expand_action"
+                                            data-attr="#coupon_info">Click Here To Enter Your Code.</span></h3>
+                                    <div id="coupon_info"
+                                        class="user-actions__form user-actions--coupon hide-in-default">
                                         <form action="page/checkout.php" class="form" method="post">
                                             <div class="form__group d-flex">
-                                                <input type="text" name="codename" id="coupon" class="form__input form__input--2 form__input--w285 mr--20" placeholder="Coupon Code">
+                                                <input type="text" name="codename" id="coupon"
+                                                    class="form__input form__input--2 form__input--w285 mr--20"
+                                                    placeholder="Coupon Code">
                                                 <button type="submit" class="btn btn-medium btn-style-3">Apply
                                                     Coupon</button>
                                             </div>
@@ -106,24 +114,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                             <div class="form__group col-md-6 mb-sm--30">
                                                 <label for="billing_fname" class="form__label">First Name
                                                     <span>*</span></label>
-                                                <input type="text" name="billing_fname" id="billing_fname" class="form__input form__input--2">
+                                                <input type="text" name="billing_fname" id="billing_fname"
+                                                    class="form__input form__input--2">
                                             </div>
                                             <div class="form__group col-md-6">
                                                 <label for="billing_lname" class="form__label">Last Name
                                                     <span>*</span></label>
-                                                <input type="text" name="billing_lname" id="billing_lname" class="form__input form__input--2">
+                                                <input type="text" name="billing_lname" id="billing_lname"
+                                                    class="form__input form__input--2">
                                             </div>
                                         </div>
                                         <div class="form-row mb--30">
                                             <div class="form__group col-12">
                                                 <label for="billing_company" class="form__label">Company</label>
-                                                <input type="text" name="billing_company" id="billing_company" class="form__input form__input--2">
+                                                <input type="text" name="billing_company" id="billing_company"
+                                                    class="form__input form__input--2">
                                             </div>
                                         </div>
                                         <div class="form-row mb--30">
                                             <div class="form__group col-12">
                                                 <label for="billing_country" class="form__label">Country</label>
-                                                <select id="billing_country" name="billing_country" class="form__input form__input--2 nice-select" style="display: none;">
+                                                <select id="billing_country" name="billing_country"
+                                                    class="form__input form__input--2 nice-select"
+                                                    style="display: none;">
                                                     <option value="">Select a country…</option>
                                                     <option value="AF">Afghanistan</option>
                                                     <option value="AL">Albania</option>
@@ -172,8 +185,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                                     <option value="GB">United Kingdom (UK)</option>
                                                     <option value="US">United States (US)</option>
                                                 </select>
-                                                <div class="nice-select form__input form__input--2" tabindex="0"><span class="current">Bangladesh</span>
-                                                    <div class="nice-select-search-box"><input type="text" class="nice-select-search" placeholder="Search..."></div>
+                                                <div class="nice-select form__input form__input--2" tabindex="0"><span
+                                                        class="current">Bangladesh</span>
+                                                    <div class="nice-select-search-box"><input type="text"
+                                                            class="nice-select-search" placeholder="Search..."></div>
                                                     <ul class="list">
                                                         <li data-value="" class="option">Select a country…</li>
                                                         <li data-value="AF" class="option">Afghanistan</li>
@@ -230,28 +245,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                             <div class="form__group col-12">
                                                 <label for="billing_streetAddress" class="form__label">Street
                                                     Address</label>
-                                                <input type="text" name="billing_streetAddress" id="billing_streetAddress" class="form__input form__input--2">
+                                                <input type="text" name="billing_streetAddress"
+                                                    id="billing_streetAddress" class="form__input form__input--2">
                                             </div>
                                         </div>
                                         <div class="form-row mb--30">
                                             <div class="form__group col-12">
                                                 <label for="billing_apartment" class="form__label">Apartment, suite,
                                                     unit etc. (optional)</label>
-                                                <input type="text" name="billing_apartment" id="billing_apartment" class="form__input form__input--2">
+                                                <input type="text" name="billing_apartment" id="billing_apartment"
+                                                    class="form__input form__input--2">
                                             </div>
                                         </div>
                                         <div class="form-row mb--30">
                                             <div class="form__group col-12">
                                                 <label for="billing_city" class="form__label">Town/City
                                                     <span>*</span></label>
-                                                <input type="text" name="billing_city" id="billing_city" class="form__input form__input--2">
+                                                <input type="text" name="billing_city" id="billing_city"
+                                                    class="form__input form__input--2">
                                             </div>
                                         </div>
                                         <div class="form-row mb--30">
                                             <div class="form__group col-12">
                                                 <label for="billing_district" class="form__label">District
                                                     <span>*</span></label>
-                                                <select name="billing_district" id="billing_district" class="form__input form__input--2 nice-select" style="display: none;">
+                                                <select name="billing_district" id="billing_district"
+                                                    class="form__input form__input--2 nice-select"
+                                                    style="display: none;">
                                                     <option value="">Select a District…</option>
                                                     <option>BARISAL</option>
                                                     <option>BHOLA</option>
@@ -283,8 +303,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                                     <option>SHERPUR</option>
                                                     <option>TANGAIL</option>
                                                 </select>
-                                                <div class="nice-select form__input form__input--2" tabindex="0"><span class="current">Select a District…</span>
-                                                    <div class="nice-select-search-box"><input type="text" class="nice-select-search" placeholder="Search..."></div>
+                                                <div class="nice-select form__input form__input--2" tabindex="0"><span
+                                                        class="current">Select a District…</span>
+                                                    <div class="nice-select-search-box"><input type="text"
+                                                            class="nice-select-search" placeholder="Search..."></div>
                                                     <ul class="list">
                                                         <li data-value="" class="option selected">Select a District…
                                                         </li>
@@ -325,24 +347,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                             <div class="form__group col-12">
                                                 <label for="billing_zip" class="form__label">Post/Zip Code
                                                     <span>*</span></label>
-                                                <input type="text" name="billing_zip" id="billing_zip" class="form__input form__input--2">
+                                                <input type="text" name="billing_zip" id="billing_zip"
+                                                    class="form__input form__input--2">
                                             </div>
                                         </div>
                                         <div class="form-row mb--30">
                                             <div class="form__group col-md-6 mb-sm--30">
                                                 <label for="billing_phone" class="form__label">Phone</label>
-                                                <input type="text" name="billing_phone" id="billing_phone" class="form__input form__input--2">
+                                                <input type="text" name="billing_phone" id="billing_phone"
+                                                    class="form__input form__input--2">
                                             </div>
                                             <div class="form__group col-md-6">
                                                 <label for="billing_email" class="form__label">Email Address
                                                     <span>*</span></label>
-                                                <input type="email" name="billing_email" id="billing_email" class="form__input form__input--2">
+                                                <input type="email" name="billing_email" id="billing_email"
+                                                    class="form__input form__input--2">
                                             </div>
                                         </div>
                                         <div class="form-row mb--30">
                                             <div class="form__group col-12">
                                                 <div class="custom-checkbox">
-                                                    <input type="checkbox" name="createaccount" id="createaccount" class="form__checkbox">
+                                                    <input type="checkbox" name="createaccount" id="createaccount"
+                                                        class="form__checkbox">
 
                                                     <label for="createaccount" class="form__checkbox--label">Create An
                                                         Account?</label>
@@ -352,16 +378,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                                         returning customer please login at the top of the page.</p>
                                                     <label for="newPass" class="form__label">Password
                                                         <span>*</span></label>
-                                                    <input type="text" name="newPass" id="newPass" class="form__input form__input--2">
+                                                    <input type="text" name="newPass" id="newPass"
+                                                        class="form__input form__input--2">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-row mb--30">
                                             <div class="form__group col-12">
                                                 <div class="custom-checkbox">
-                                                    <input type="checkbox" name="shipdifferetads" id="shipdifferetads" class="form__checkbox">
+                                                    <input type="checkbox" name="shipdifferetads" id="shipdifferetads"
+                                                        class="form__checkbox">
 
-                                                    <label for="shipdifferetads" class="form__checkbox--label shipping-label">Ship To A Different
+                                                    <label for="shipdifferetads"
+                                                        class="form__checkbox--label shipping-label">Ship To A Different
                                                         Address?</label>
                                                 </div>
                                                 <div class="ship-box-info hide-in-default mt--30">
@@ -369,24 +398,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                                         <div class="form__group col-md-6 mb-sm--30">
                                                             <label for="shipping_fname" class="form__label">First Name
                                                                 <span>*</span></label>
-                                                            <input type="text" name="shipping_fname" id="shipping_fname" class="form__input form__input--2">
+                                                            <input type="text" name="shipping_fname" id="shipping_fname"
+                                                                class="form__input form__input--2">
                                                         </div>
                                                         <div class="form__group col-md-6">
                                                             <label for="shipping_lname" class="form__label">Last Name
                                                                 <span>*</span></label>
-                                                            <input type="text" name="shipping_lname" id="shipping_lname" class="form__input form__input--2">
+                                                            <input type="text" name="shipping_lname" id="shipping_lname"
+                                                                class="form__input form__input--2">
                                                         </div>
                                                     </div>
                                                     <div class="form-row mb--30">
                                                         <div class="form__group col-12">
-                                                            <label for="shipping_company" class="form__label">Company</label>
-                                                            <input type="text" name="shipping_company" id="shipping_company" class="form__input form__input--2">
+                                                            <label for="shipping_company"
+                                                                class="form__label">Company</label>
+                                                            <input type="text" name="shipping_company"
+                                                                id="shipping_company"
+                                                                class="form__input form__input--2">
                                                         </div>
                                                     </div>
                                                     <div class="form-row mb--30">
                                                         <div class="form__group col-12">
-                                                            <label for="shipping_country" class="form__label">Country</label>
-                                                            <select id="shipping_country" name="shipping_country" class="form__input form__input--2 nice-select" style="display: none;">
+                                                            <label for="shipping_country"
+                                                                class="form__label">Country</label>
+                                                            <select id="shipping_country" name="shipping_country"
+                                                                class="form__input form__input--2 nice-select"
+                                                                style="display: none;">
                                                                 <option value="">Select a country…</option>
                                                                 <option value="AF">Afghanistan</option>
                                                                 <option value="AL">Albania</option>
@@ -436,8 +473,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                                                 <option value="GB">United Kingdom (UK)</option>
                                                                 <option value="US">United States (US)</option>
                                                             </select>
-                                                            <div class="nice-select form__input form__input--2" tabindex="0"><span class="current">Bangladesh</span>
-                                                                <div class="nice-select-search-box"><input type="text" class="nice-select-search" placeholder="Search..."></div>
+                                                            <div class="nice-select form__input form__input--2"
+                                                                tabindex="0"><span class="current">Bangladesh</span>
+                                                                <div class="nice-select-search-box"><input type="text"
+                                                                        class="nice-select-search"
+                                                                        placeholder="Search..."></div>
                                                                 <ul class="list">
                                                                     <li data-value="" class="option">Select a country…
                                                                     </li>
@@ -497,29 +537,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                                     </div>
                                                     <div class="form-row mb--30">
                                                         <div class="form__group col-12">
-                                                            <label for="shipping_streetAddress" class="form__label">Street Address</label>
-                                                            <input type="text" name="shipping_streetAddress" id="shipping_streetAddress" class="form__input form__input--2">
+                                                            <label for="shipping_streetAddress"
+                                                                class="form__label">Street Address</label>
+                                                            <input type="text" name="shipping_streetAddress"
+                                                                id="shipping_streetAddress"
+                                                                class="form__input form__input--2">
                                                         </div>
                                                     </div>
                                                     <div class="form-row mb--30">
                                                         <div class="form__group col-12">
-                                                            <label for="shipping_apartment" class="form__label">Apartment, suite, unit etc.
+                                                            <label for="shipping_apartment"
+                                                                class="form__label">Apartment, suite, unit etc.
                                                                 (optional)</label>
-                                                            <input type="text" name="shipping_apartment" id="shipping_apartment" class="form__input form__input--2">
+                                                            <input type="text" name="shipping_apartment"
+                                                                id="shipping_apartment"
+                                                                class="form__input form__input--2">
                                                         </div>
                                                     </div>
                                                     <div class="form-row mb--30">
                                                         <div class="form__group col-12">
                                                             <label for="shipping_city" class="form__label">Town/City
                                                                 <span>*</span></label>
-                                                            <input type="text" name="shipping_city" id="shipping_city" class="form__input form__input--2">
+                                                            <input type="text" name="shipping_city" id="shipping_city"
+                                                                class="form__input form__input--2">
                                                         </div>
                                                     </div>
                                                     <div class="form-row mb--30">
                                                         <div class="form__group col-12">
                                                             <label for="shipping_district" class="form__label">Districtg
                                                                 <span>*</span></label>
-                                                            <select id="shipping_district" name="shipping_district" class="form__input form__input--2 nice-select" style="display: none;">
+                                                            <select id="shipping_district" name="shipping_district"
+                                                                class="form__input form__input--2 nice-select"
+                                                                style="display: none;">
                                                                 <option value="">Select a District…</option>
                                                                 <option>BARISAL</option>
                                                                 <option>BHOLA</option>
@@ -551,9 +600,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                                                 <option>SHERPUR</option>
                                                                 <option>TANGAIL</option>
                                                             </select>
-                                                            <div class="nice-select form__input form__input--2" tabindex="0"><span class="current">Select a
+                                                            <div class="nice-select form__input form__input--2"
+                                                                tabindex="0"><span class="current">Select a
                                                                     District…</span>
-                                                                <div class="nice-select-search-box"><input type="text" class="nice-select-search" placeholder="Search..."></div>
+                                                                <div class="nice-select-search-box"><input type="text"
+                                                                        class="nice-select-search"
+                                                                        placeholder="Search..."></div>
                                                                 <ul class="list">
                                                                     <li data-value="" class="option selected">Select a
                                                                         District…</li>
@@ -614,18 +666,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                                         <div class="form__group col-12">
                                                             <label for="shipping_zip" class="form__label">Post/Zip Code
                                                                 <span>*</span></label>
-                                                            <input type="text" name="shipping_zip" id="shipping_zip" class="form__input form__input--2">
+                                                            <input type="text" name="shipping_zip" id="shipping_zip"
+                                                                class="form__input form__input--2">
                                                         </div>
                                                     </div>
                                                     <div class="form-row mb--30">
                                                         <div class="form__group col-md-6 mb-sm--30">
-                                                            <label for="shipping_phone" class="form__label">Phone</label>
-                                                            <input type="text" name="shipping_phone" id="shipping_phone" class="form__input form__input--2">
+                                                            <label for="shipping_phone"
+                                                                class="form__label">Phone</label>
+                                                            <input type="text" name="shipping_phone" id="shipping_phone"
+                                                                class="form__input form__input--2">
                                                         </div>
                                                         <div class="form__group col-md-6">
                                                             <label for="shipping_email" class="form__label">Email
                                                                 Address <span>*</span></label>
-                                                            <input type="email" name="shipping_email" id="shipping_email" class="form__input form__input--2">
+                                                            <input type="email" name="shipping_email"
+                                                                id="shipping_email" class="form__input form__input--2">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -634,7 +690,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                         <div class="form-row">
                                             <div class="form__group col-12">
                                                 <label for="orderNotes" class="form__label">Order Notes</label>
-                                                <textarea class="form__input form__input--2 form__input--textarea" id="orderNotes" name="orderNotes" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                                <textarea class="form__input form__input--2 form__input--textarea"
+                                                    id="orderNotes" name="orderNotes"
+                                                    placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                                             </div>
                                         </div>
                                     </form>
@@ -648,36 +706,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
 
                                         # code...
                                 ?>
-                                        <div class="order-details">
-                                            <h3 class="heading-tertiary">Your Order</h3>
-                                            <div class="order-table table-content table-responsive mb--30">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Product</th>
-                                                            <th>Total</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
+                                <form action="page/checkout.php" method="post" class="payment-form">
+
+                                    <div class="order-details">
+                                        <h3 class="heading-tertiary">Your Order</h3>
+                                        <div class="order-table table-content table-responsive mb--30">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Product</th>
+                                                        <th>Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
                                                         while ($result = $show->fetch_assoc()) {
                                                         ?>
-                                                            <tr>
-                                                                <td><?php echo $result['productname'] ?>
-                                                                    <strong>x<?php echo $result['cartquantity'] ?></strong>
-                                                                </td>
-                                                                <td>$<?php echo number_format(($result['productprice']  - ($result['productprice'] * $result['productsale'] / 100))  * $result['cartquantity']) ?>.00
-                                                                </td>
-                                                            </tr>
-                                                        <?php
+                                                    <tr>
+                                                        <td><?php echo $result['productname'] ?>
+                                                            <strong>x<?php echo $result['cartquantity'] ?></strong>
+                                                        </td>
+                                                        <td>$<?php echo number_format(($result['productprice']  - ($result['productprice'] * $result['productsale'] / 100))  * $result['cartquantity']) ?>.00
+                                                        </td>
+                                                    </tr>
+                                                    <?php
 
                                                         }
                                                         ?>
-                                                    </tbody>
-                                                    <tfoot>
-                                                        <tr class="order-total">
-                                                            <th>Total</th>
-                                                            <?php
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr class="order-total">
+                                                        <th>Total</th>
+                                                        <?php
                                                             if (isset($show12)) {
                                                                 if ($show12 && $show12->num_rows > 0) {
                                                                     $i = 0;
@@ -688,51 +748,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                                                     # code...
                                                             ?>
 
-                                                                    <td>
+                                                        <td>
 
 
 
-                                                                        <span class="order-total-ammount">$<?php echo  number_format($z) ?>.00</span>
+                                                            <span
+                                                                class="order-total-ammount">$<?php echo  number_format($z) ?>.00</span>
 
 
 
-                                                                    </td>
+                                                        </td>
 
 
-                                                                <?php
+                                                        <?php
                                                                     $i++;
                                                                 } else {
                                                                 ?>
-                                                            <?php
+                                                        <?php
                                                                 }
                                                             }
                                                             ?>
-                                                        </tr>
+                                                    </tr>
 
-                                                        <tr class="order-total">
-                                                            <th>Coupon</th>
-                                                            <?php
+                                                    <tr class="order-total">
+                                                        <th>Coupon</th>
+                                                        <?php
                                                             if (isset($codeinsert)) {
                                                                 if ($codeinsert && $codeinsert->num_rows > 0) {
                                                                     while ($resultss = $codeinsert->fetch_assoc()) {
                                                                         $codess = $resultss['codepercent'];
                                                             ?>
-                                                                        <td><span class="order-total-ammount">-<?php echo $codess ? $codess : 0; ?>%</span>
-                                                                        </td>
-                                                                    <?php
+                                                        <td><span
+                                                                class="order-total-ammount">-<?php echo isset($codess) ? $codess : 0; ?>%</span>
+                                                        </td>
+                                                        <?php
                                                                     }
                                                                 } else {
                                                                     $codess = 0;
                                                                     ?>
-                                                                    <td><span class="order-total-ammount">-0%</span></td>
-                                                            <?php
+                                                        <td><span class="order-total-ammount">-0%</span></td>
+                                                        <?php
                                                                 }
                                                             }
                                                             ?>
-                                                        </tr>
-                                                        <tr class="order-total">
-                                                            <th>Order Total</th>
-                                                            <?php
+                                                    </tr>
+                                                    <tr class="order-total">
+                                                        <th>Order Total</th>
+                                                        <?php
                                                             if (isset($show1)) {
                                                                 if ($show1 && $show1->num_rows > 0) {
                                                                     $i = 0;
@@ -743,83 +805,90 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                                                     # code...
                                                             ?>
 
-                                                                    <td>
+                                                        <td>
 
 
 
-                                                                        <span class="order-total-ammount">$<?php echo $codess ? number_format($z - $z * $codess / 100) : number_format($z) ?>.00</span>
+                                                            <span
+                                                                class="order-total-ammount">$<?php echo isset($codess) ? number_format($z - $z * $codess / 100) : number_format($z) ?>.00</span>
+                                                            <input type="number" style="display: none;"
+                                                                value="<?php echo isset($codess) ? ($z - $z * $codess / 100) : ($z) ?>"
+                                                                name="orderprice">
 
 
 
-                                                                    </td>
+                                                        </td>
 
 
-                                                                <?php
+                                                        <?php
                                                                     $i++;
                                                                 } else {
                                                                 ?>
-                                                            <?php
+                                                        <?php
                                                                 }
                                                             }
                                                             ?>
-                                                        </tr>
-                                                    </tfoot>
-                                                </table>
-                                            </div>
-                                            <div class="checkout-payment">
-                                                <form action="page/checkout.php" method="post" class="payment-form">
-                                                    <div class="payment-group">
-                                                        <div class="custom-radio payment-radio">
-                                                            <input type="radio" name="payment-method" id="cheque" checked="">
-                                                            <label class="payment-label" for="cheque">Cheque Payment</label>
-                                                        </div>
-                                                        <div class="payment-info">
-                                                            <p>Please send your cheque to Store Name, Store Street, Store Town,
-                                                                Store State / County, Store Postcode.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="payment-group">
-                                                        <div class="custom-radio payment-radio">
-                                                            <input type="radio" name="payment-method" id="cash">
-                                                            <label class="payment-label" for="cash">Cash On Delivery</label>
-                                                        </div>
-                                                        <div class="payment-info">
-                                                            <p>Pay with cash upon delivery.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="payment-group">
-                                                        <div class="custom-radio payment-radio">
-                                                            <input type="radio" value="paypal" name="payment-method" id="paypal">
-                                                            <label class="payment-label" for="paypal">
-                                                                Paypal
-                                                                <img src="https://htmldemo.net/mirora/mirora/assets/img/others/AM_mc_vs_ms_ae_UK.png" alt="payment">
-                                                                <a href="https://www.paypal.com/gb/webapps/mpp/paypal-popup">What
-                                                                    is PayPal?</a>
-                                                            </label>
-                                                        </div>
-                                                        <div class="payment-info paypal">
-                                                            <p>Pay via PayPal; you can pay with your credit card if you don’t
-                                                                have a PayPal account.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="payment-group">
-                                                        <div class="custom-checkbox">
-                                                            <input type="checkbox" name="termscondition" id="termscondition" class="form__checkbox">
-
-                                                            <label for="termscondition" class="terms-condition-label payment-label">I have read and
-                                                                agree to the website <a href="page/home.php">terms and
-                                                                    conditions.</a></label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="payment-btn-group">
-                                                        <button type="submit" name="order" class="btn btn-style-3">Place
-                                                            Order</button>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
                                         </div>
+                                        <div class="checkout-payment">
+                                            <div class="payment-group">
+                                                <div class="custom-radio payment-radio">
+                                                    <input type="radio" name="payment-method" id="cheque" checked="">
+                                                    <label class="payment-label" for="cheque">Cheque Payment</label>
+                                                </div>
+                                                <div class="payment-info">
+                                                    <p>Please send your cheque to Store Name, Store Street, Store Town,
+                                                        Store State / County, Store Postcode.</p>
+                                                </div>
+                                            </div>
+                                            <div class="payment-group">
+                                                <div class="custom-radio payment-radio">
+                                                    <input type="radio" name="payment-method" id="cash">
+                                                    <label class="payment-label" for="cash">Cash On Delivery</label>
+                                                </div>
+                                                <div class="payment-info">
+                                                    <p>Pay with cash upon delivery.</p>
+                                                </div>
+                                            </div>
+                                            <div class="payment-group">
+                                                <div class="custom-radio payment-radio">
+                                                    <input type="radio" value="paypal" name="payment-method"
+                                                        id="paypal">
+                                                    <label class="payment-label" for="paypal">
+                                                        Paypal
+                                                        <img src="https://htmldemo.net/mirora/mirora/assets/img/others/AM_mc_vs_ms_ae_UK.png"
+                                                            alt="payment">
+                                                        <a href="https://www.paypal.com/gb/webapps/mpp/paypal-popup">What
+                                                            is PayPal?</a>
+                                                    </label>
+                                                </div>
+                                                <div class="payment-info paypal">
+                                                    <p>Pay via PayPal; you can pay with your credit card if you don’t
+                                                        have a PayPal account.</p>
+                                                </div>
+                                            </div>
+                                            <div class="payment-group">
+                                                <div class="custom-checkbox">
+                                                    <input type="checkbox" name="termscondition" id="termscondition"
+                                                        class="form__checkbox">
 
-                                    <?php
+                                                    <label for="termscondition"
+                                                        class="terms-condition-label payment-label">I have read and
+                                                        agree to the website <a href="page/home.php">terms and
+                                                            conditions.</a></label>
+                                                </div>
+                                            </div>
+                                            <div class="payment-btn-group">
+                                                <button type="submit" name="order" class="btn btn-style-3">Place
+                                                    Order</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </form>
+                                <?php
                                         $i++;
                                     } else {
                                     ?>
