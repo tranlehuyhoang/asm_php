@@ -57,6 +57,7 @@ class cart
                 $arlet = "<div class='alert alert-danger' role='alert'>Duplicate record found</div>";
                 return $arlet;
             } else {
+
                 $query = "INSERT INTO tbl_cart(cartproductid,cartsession,cartquantity,cartuserid,cartstatus) VALUES ('$cartproductid','$cartsession','$cartquantity','$cartuserid','$cartstatus')";
                 $result = $this->db->insert($query);
                 if ($result) {

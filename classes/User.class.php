@@ -167,4 +167,13 @@ class user
             return $arlet;
         }
     }
+    public function countusser()
+    {
+
+        $query = "SELECT COUNT(*) AS total_users FROM tbl_users; ";
+        $result = $this->db->select($query);
+
+
+        return $result;
+    }
 }

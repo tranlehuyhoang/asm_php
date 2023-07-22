@@ -44,11 +44,21 @@ class order
             $arlet = "<div class='alert alert-danger' role='alert'>Code must not be empty</div>";
             return $arlet;
         } else {
+            $queryss = "UPDATE tbl_products p
+        INNER JOIN tbl_cart c
+            ON p.productid = c.cartproductid
+        SET p.productquantitysell = p.productquantitysell + c.cartquantity,
+            p.productstock = p.productstock - c.cartquantity
+        WHERE c.cartcheck = 1 ;
+        ";
+            $resultss = $this->db->update($queryss);
+            $queryssaa = "UPDATE tbl_cart SET cartcheck = 2 WHERE cartuserid = '$id' AND cartcheck = 1; ";
+            $resultsssss = $this->db->update($queryssaa);
             $query = "INSERT INTO tbl_orders(orderstatus,orderuserid,orderprice) VALUES ('$orderstatus','$orderuserid','$orderprice')";
             $result = $this->db->insert($query);
             if ($result) {
 
-                $query = "UPDATE tbl_cart SET cartstatus = '2' WHERE cartuserid = '$id'";
+                $query = "UPDATE tbl_cart SET cartstatus = '2', cartcheck = '1' WHERE cartuserid = '$id'";
                 $result = $this->db->update($query);
                 $arlet = "<div class='alert alert-success' role='alert'>Insert Code Successfully</div>";
                 return $arlet;
@@ -125,6 +135,20 @@ class order
 
     {
         $query = "SELECT * FROM tbl_orders WHERE orderid = '$id'";
+        $result = $this->db->select($query);
+
+        return $result;
+    }
+    public function countmoney()
+    {
+        $query = "SELECT SUM(orderprice) AS total_order_price FROM tbl_orders;";
+        $result = $this->db->select($query);
+
+        return $result;
+    }
+    public function countorder()
+    {
+        $query = "SELECT COUNT(*) AS total_orders FROM tbl_orders;";
         $result = $this->db->select($query);
 
         return $result;

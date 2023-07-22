@@ -221,7 +221,7 @@ if (isset($codeinsert)) {
                                                 ?>
                                         </a></li>
                                     <li>Stock: <?php echo $result['productstock'] ?></li>
-                                    <li>Selled: <?php echo $result['productquantitysell'] ?></li>
+                                    <li>Sold: <?php echo $result['productquantitysell'] ?></li>
                                 </ul>
                                 <div class="product-details-price-wrapper">
                                     <span
@@ -391,7 +391,7 @@ if (isset($codeinsert)) {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th>Selled: </th>
+                                                <th>Sold: </th>
                                                 <td>
                                                     <p><?php echo $result['productquantitysell'] ?></p>
                                                 </td>

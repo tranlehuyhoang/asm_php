@@ -182,4 +182,12 @@ class product
             return $arlet;
         }
     }
+    public function getallquantitydell()
+    {
+
+        $query = "SELECT SUM(productquantitysell) AS total_quantity_sell FROM tbl_products;";
+        $result = $this->db->select($query);
+
+        return $result;
+    }
 }
