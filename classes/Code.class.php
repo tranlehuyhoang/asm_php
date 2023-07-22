@@ -41,6 +41,15 @@ class code
 
         return $result;
     }
+    public function show_code_name($code)
+    {
+        $query = "SELECT * FROM tbl_code
+        WHERE codename = '$code'
+        LIMIT 1";
+        $result = $this->db->select($query);
+
+        return $result;
+    }
 
 
     public function update_code($data, $id)

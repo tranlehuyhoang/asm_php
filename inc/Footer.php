@@ -12,27 +12,32 @@
                     </div>
                     <ul class="social social-round">
                         <li class="social__item">
-                            <a class="social__link" href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                            <a class="social__link" href="https://facebook.com" target="_blank"
+                                rel="noopener noreferrer">
                                 <i class="fa fa-facebook"></i>
                             </a>
                         </li>
                         <li class="social__item">
-                            <a class="social__link" href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                            <a class="social__link" href="https://twitter.com" target="_blank"
+                                rel="noopener noreferrer">
                                 <i class="fa fa-twitter"></i>
                             </a>
                         </li>
                         <li class="social__item">
-                            <a class="social__link" href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                            <a class="social__link" href="https://youtube.com" target="_blank"
+                                rel="noopener noreferrer">
                                 <i class="fa fa-youtube"></i>
                             </a>
                         </li>
                         <li class="social__item">
-                            <a class="social__link" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                            <a class="social__link" href="https://instagram.com" target="_blank"
+                                rel="noopener noreferrer">
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </li>
                         <li class="social__item">
-                            <a class="social__link" href="https://plus.google.com" target="_blank" rel="noopener noreferrer">
+                            <a class="social__link" href="https://plus.google.com" target="_blank"
+                                rel="noopener noreferrer">
                                 <i class="fa fa-google-plus"></i>
                             </a>
                         </li>
@@ -139,7 +144,7 @@
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <p class="copyright-text">&copy; Mirora 2021 Made With <i class="fa fa-heart"></i> BY <a href="https://hasthemes.com">HasThemes</a> </p>
+                <p class="copyright-text">&copy; <a>Ps26819</a> </p>
                 <img src="assets/img/others/payment.png" alt="payment">
             </div>
         </div>
@@ -272,7 +277,8 @@
                                     <div class="product-action-top d-flex align-items-center mb--20">
                                         <div class="quantity">
                                             <span>Qty: </span>
-                                            <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
+                                            <input type="number" class="quantity-input" name="qty" id="qty" value="1"
+                                                min="1">
                                         </div>
                                         <button type="button" class="btn btn-medium btn-style-2 add-to-cart">
                                             Add To Cart
