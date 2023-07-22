@@ -1,5 +1,7 @@
 <?php
 include '../inc/Header.php';
+
+
 $cat = new blog();
 $catId = $_GET['blogid'];
 $getcatbyid = $cat->getblogbyid($catId);
