@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 }
 
 if (isset($_SESSION['userid'])) {
-    echo "<script>location.href = 'page/home.php';</script>";
+    echo "<script>location.href = 'Home.php';</script>";
 } else {
 }
 ?>

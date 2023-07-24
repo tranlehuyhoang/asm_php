@@ -7,8 +7,8 @@ include '../inc/Header.php';
             <div class="col-12 text-center">
                 <h1 class="page-title">Compare</h1>
                 <ul class="breadcrumb justify-content-center">
-                    <li><a href="page/home.php">Home</a></li>
-                    <li class="current"><a href="compare.html">Compare</a></li>
+                    <li><a href="<?php echo $host ?>page/Home.php">Home</a></li>
+                    <li class="current"><a href="<?php echo $host ?>page/Compare.php">Compare</a></li>
                 </ul>
             </div>
         </div>
@@ -33,30 +33,30 @@ include '../inc/Header.php';
                                         <tr>
                                             <th class="first-column">Product</th>
                                             <td>
-                                                <h3><a href="product-details.html">Integer eget augue</a></h3>
+                                                <h3><a href="">Integer eget augue</a></h3>
                                             </td>
                                             <td>
-                                                <h3><a href="product-details.html">Dignissim venenatis</a></h3>
+                                                <h3><a href="">Dignissim venenatis</a></h3>
                                             </td>
                                             <td>
-                                                <h3><a href="product-details.html">Aliquam furniture</a></h3>
+                                                <h3><a href="">Aliquam furniture</a></h3>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th class="first-column">Image</th>
                                             <td>
-                                                <a href="product-details.html">
-                                                    <img src="assets/img/products/1-1-450x450.jpg" alt="product">
+                                                <a href="">
+                                                    <img src="<?php echo $host ?>assets/img/products/1-1-450x450.jpg" alt="product">
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="product-details.html">
-                                                    <img src="assets/img/products/2-2-450x450.jpg" alt="product">
+                                                <a href="">
+                                                    <img src="<?php echo $host ?>assets/img/products/2-2-450x450.jpg" alt="product">
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="product-details.html">
-                                                    <img src="assets/img/products/3-3-450x450.jpg" alt="product">
+                                                <a href="">
+                                                    <img src="<?php echo $host ?>assets/img/products/3-3-450x450.jpg" alt="product">
                                                 </a>
                                             </td>
                                         </tr>
@@ -174,15 +174,15 @@ include '../inc/Header.php';
                                         <tr>
                                             <th class="first-column">Add to cart</th>
                                             <td>
-                                                <a href="cart.html" class="btn add-to-cart btn-medium btn-style-2">Add
+                                                <a href="<?php echo $host ?>page/Cart.php" class="btn add-to-cart btn-medium btn-style-2">Add
                                                     to Cart</a>
                                             </td>
                                             <td>
-                                                <a href="cart.html" class="btn disabled add-to-cart btn-medium btn-style-2">Add to
+                                                <a href="<?php echo $host ?>page/Cart.php" class="btn disabled add-to-cart btn-medium btn-style-2">Add to
                                                     Cart</a>
                                             </td>
                                             <td>
-                                                <a href="cart.html" class="btn add-to-cart btn-medium btn-style-2">Add
+                                                <a href="<?php echo $host ?>page/Cart.php" class="btn add-to-cart btn-medium btn-style-2">Add
                                                     to Cart</a>
                                             </td>
                                         </tr>

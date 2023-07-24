@@ -12,12 +12,13 @@ include '../inc/Header.php';
                         <p>Sorry but the page you are looking for does not exist, have been removed, name changed or is
                             temporarity unavailable.</p>
                         <form action="#" class="search-form search-form--3 mb--60">
-                            <input type="text" name="search" id="error_search" placeholder="Search..." class="search-form__input">
+                            <input type="text" name="search" id="error_search" placeholder="Search..."
+                                class="search-form__input">
                             <button type="submit" class="search-form__submit">
                                 <i class="fa fa-search"></i>
                             </button>
                         </form>
-                        <a href="page/home.php" class="btn btn-4 btn-style-3">Back to home page</a>
+                        <a href="<?php echo $host ?>page/Home.php" class="btn btn-4 btn-style-3">Back to home page</a>
                     </div>
                 </div>
             </div>

@@ -20,8 +20,8 @@ $showssss = $classsss->show_product();
             <div class="col-12 text-center">
                 <h1 class="page-title">Shop</h1>
                 <ul class="breadcrumb justify-content-center">
-                    <li><a href="page/home.php">Home</a></li>
-                    <li class="current"><a href="shop.html">Shop</a></li>
+                    <li><a href="<?php echo $host ?>page/Home.php">Home</a></li>
+                    <li class="current"><a href="<?php echo $host ?>page/Shop.php">Shop</a></li>
                 </ul>
             </div>
         </div>
@@ -135,7 +135,7 @@ $showssss = $classsss->show_product();
                                         <span class="product-label discount">
                                             -<?php echo $result['productsale']; ?>%
                                         </span>
-                                        <a href="page/ProductDetail.php?productid=<?php echo $result['productid']; ?>"
+                                        <a href="ProductDetail.php?productid=<?php echo $result['productid']; ?>"
                                             class="btn btn-transparent btn-fullwidth btn-medium btn-style-1">Quick
                                             View</a>
                                     </div>
@@ -143,7 +143,7 @@ $showssss = $classsss->show_product();
                                 <div class="product-content text-center">
                                     <span><?php echo  $result['categoryname']; ?></span>
                                     <h4><a
-                                            href="page/ProductDetail.php?productid=<?php echo $result['productid']; ?>"><?php echo  $result['productname']; ?></a>
+                                            href="ProductDetail.php?productid=<?php echo $result['productid']; ?>"><?php echo  $result['productname']; ?></a>
                                     </h4>
                                     <div class="product-price-wrapper">
                                         <span class="money">$

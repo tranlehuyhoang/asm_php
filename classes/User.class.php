@@ -110,7 +110,7 @@ class user
             if ($result && $result->num_rows > 0) {
                 while ($resultss = $result->fetch_assoc()) {
                     if ($resultss['userroles'] == 2) {
-                        header('Location:page/home.php');
+                        header('Location:page/Home.php');
                     }
                 }
             }
@@ -129,7 +129,7 @@ class user
                 while ($resultss = $result->fetch_assoc()) {
                     if ($resultss['userroles'] == 2) {
                         $_SESSION['useradmin'] = $resultss['userid'];
-                        header('Location:page/home.php');
+                        header('Location:page/Home.php');
                     }
                 }
             }

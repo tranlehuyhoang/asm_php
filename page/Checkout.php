@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
             <div class="col-12 text-center">
                 <h1 class="page-title">Checkout</h1>
                 <ul class="breadcrumb justify-content-center">
-                    <li><a href="page/home.php">Home</a></li>
-                    <li class="current"><a href="checkout.html">Checkout</a></li>
+                    <li><a href=" Home.php">Home</a></li>
+                    <li class="current"><a href="Checkout.php">Checkout</a></li>
                 </ul>
             </div>
         </div>
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                 <div class="user-actions__single user-actions__coupon">
                                     <h3><i class="fa fa-cube"></i> Have A Coupon? <span class="expand_action" data-attr="#coupon_info">Click Here To Enter Your Code.</span></h3>
                                     <div id="coupon_info" class="user-actions__form user-actions--coupon hide-in-default">
-                                        <form action="page/checkout.php" class="form" method="post">
+                                        <form action="checkout.php" class="form" method="post">
                                             <div class="form__group d-flex">
                                                 <input type="text" name="codename" id="coupon" class="form__input form__input--2 form__input--w285 mr--20" placeholder="Coupon Code">
                                                 <button type="submit" class="btn btn-medium btn-style-3">Apply
@@ -650,7 +650,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
 
                                         # code...
                                 ?>
-                                        <form action="page/checkout.php" method="post" class="payment-form">
+                                        <form action="checkout.php" method="post" class="payment-form">
 
                                             <div class="order-details">
                                                 <h3 class="heading-tertiary">Your Order</h3>
@@ -811,7 +811,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order'])) {
                                                             <input type="checkbox" name="termscondition" id="termscondition" class="form__checkbox">
 
                                                             <label for="termscondition" class="terms-condition-label payment-label">I have read and
-                                                                agree to the website <a href="page/home.php">terms and
+                                                                agree to the website <a href="<?php echo $host ?> Home.php">terms and
                                                                     conditions.</a></label>
                                                         </div>
                                                     </div>

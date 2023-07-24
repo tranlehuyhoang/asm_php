@@ -7,8 +7,8 @@ include '../inc/Header.php';
             <div class="col-12 text-center">
                 <h1 class="page-title">Shop</h1>
                 <ul class="breadcrumb justify-content-center">
-                    <li><a href="page/home.php">Home</a></li>
-                    <li class="current"><a href="shop.html">Shop</a></li>
+                    <li><a href="<?php echo $host ?>page/Home.php">Home</a></li>
+                    <li class="current"><a href="<?php echo $host ?>page/Shop.php">Shop</a></li>
                 </ul>
             </div>
         </div>

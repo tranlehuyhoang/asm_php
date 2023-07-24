@@ -10,7 +10,7 @@ $show = $class->show_blog();
             <div class="col-12 text-center">
                 <h1 class="page-title">Blog List</h1>
                 <ul class="breadcrumb justify-content-center">
-                    <li><a href="page/home.php">Home</a></li>
+                    <li><a href="<?php echo $host ?>page/Home.php">Home</a></li>
                     <li class="current"><a href="blog-list.html">Blog List</a></li>
                 </ul>
             </div>
@@ -31,37 +31,40 @@ $show = $class->show_blog();
                                 while ($result = $show->fetch_assoc()) {
                                     # code...
                         ?>
-                                    <div class="col-12 mb--30">
-                                        <article class="post listview sticky single-post format-image">
-                                            <div class="post-media">
-                                                <div class="image">
-                                                    <a href="page/blogdetail.php?blogid=<?php echo  $result['blogid']; ?>">
-                                                        <img src="<?php echo 'data:image/png;base64,' . base64_encode($result['blogimg']); ?>" alt="blog">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="post-info">
-                                                <header class="entry-header">
-                                                    <div class="entry-meta">
-                                                        <span class="post-author">
-                                                            <span class="post-by">Post By:</span>
-                                                            admin
-                                                        </span>
-
-                                                        <span class="post-date"><?php echo  $result['blogdate']; ?></span>
-                                                    </div>
-                                                    <h2 class="post-title"><a href="page/blogdetail.php?blogid=<?php echo  $result['blogid']; ?>"><?php echo  $result['blogtitle']; ?></a>
-                                                    </h2>
-                                                </header>
-                                                <div class="post-content">
-                                                    <p><?php echo  $result['blogheader']; ?></p>
-                                                </div>
-                                                <a href="page/blogdetail.php?blogid=<?php echo  $result['blogid']; ?>" class="btn btn-read-more btn-style-2">Continue
-                                                    Reading</a>
-                                            </div>
-                                        </article>
+                        <div class="col-12 mb--30">
+                            <article class="post listview sticky single-post format-image">
+                                <div class="post-media">
+                                    <div class="image">
+                                        <a href="Blogdetail.php?blogid=<?php echo  $result['blogid']; ?>">
+                                            <img src="<?php echo 'data:image/png;base64,' . base64_encode($result['blogimg']); ?>"
+                                                alt="blog">
+                                        </a>
                                     </div>
-                                <?php
+                                </div>
+                                <div class="post-info">
+                                    <header class="entry-header">
+                                        <div class="entry-meta">
+                                            <span class="post-author">
+                                                <span class="post-by">Post By:</span>
+                                                admin
+                                            </span>
+
+                                            <span class="post-date"><?php echo  $result['blogdate']; ?></span>
+                                        </div>
+                                        <h2 class="post-title"><a
+                                                href="Blogdetail.php?blogid=<?php echo  $result['blogid']; ?>"><?php echo  $result['blogtitle']; ?></a>
+                                        </h2>
+                                    </header>
+                                    <div class="post-content">
+                                        <p><?php echo  $result['blogheader']; ?></p>
+                                    </div>
+                                    <a href="Blogdetail.php?blogid=<?php echo  $result['blogid']; ?>"
+                                        class="btn btn-read-more btn-style-2">Continue
+                                        Reading</a>
+                                </div>
+                            </article>
+                        </div>
+                        <?php
                                     $i++;
                                 }
                             } else {

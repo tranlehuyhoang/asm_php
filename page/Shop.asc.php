@@ -20,8 +20,8 @@ $showssss = $classsss->show_productpriceasc();
             <div class="col-12 text-center">
                 <h1 class="page-title">Shop</h1>
                 <ul class="breadcrumb justify-content-center">
-                    <li><a href="page/home.php">Home</a></li>
-                    <li class="current"><a href="shop.html">Shop</a></li>
+                    <li><a href="<?php echo $host ?>page/Home.php">Home</a></li>
+                    <li class="current"><a href="<?php echo $host ?>page/Shop.php">Shop</a></li>
                 </ul>
             </div>
         </div>
@@ -56,16 +56,11 @@ $showssss = $classsss->show_productpriceasc();
                             <!-- Shop Toolbar Start -->
                             <div class="shop-toolbar">
                                 <div class="product-view-mode" data-default="3">
-                                    <a class="grid-2" data-target="gridview-2" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="2">2</a>
-                                    <a class="active grid-3" data-target="gridview-3" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="3">3</a>
-                                    <a class="grid-4" data-target="gridview-4" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="4">4</a>
-                                    <a class="grid-5" data-target="gridview-5" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="5">5</a>
-                                    <a class="list" data-target="listview" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="5">List</a>
+                                    <a class="grid-2" data-target="gridview-2" data-bs-toggle="tooltip" data-bs-placement="top" title="2">2</a>
+                                    <a class="active grid-3" data-target="gridview-3" data-bs-toggle="tooltip" data-bs-placement="top" title="3">3</a>
+                                    <a class="grid-4" data-target="gridview-4" data-bs-toggle="tooltip" data-bs-placement="top" title="4">4</a>
+                                    <a class="grid-5" data-target="gridview-5" data-bs-toggle="tooltip" data-bs-placement="top" title="5">5</a>
+                                    <a class="list" data-target="listview" data-bs-toggle="tooltip" data-bs-placement="top" title="5">List</a>
                                 </div>
                                 <span class="product-pages">Showing 1 to 9 of 11 (2 Pages)</span>
                                 <div class="product-showing">
@@ -83,22 +78,21 @@ $showssss = $classsss->show_productpriceasc();
                                 <div class="product-short">
                                     <label class="select-label">Short By:</label>
                                     <script>
-                                    function redirect() {
-                                        var selectBox = document.querySelector(".short-select-short-select");
-                                        var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-                                        if (selectedValue == "1") {
-                                            window.location.href = "page/Shop.php";
-                                        } else if (selectedValue == "99") {
-                                            window.location.href = "http://yourdomain.com/name-z-to-a";
-                                        } else if (selectedValue == "4") {
-                                            window.location.href = "page/Shop.asc.php";
-                                        } else if (selectedValue == "5") {
-                                            window.location.href = "page/shop.desc.php";
+                                        function redirect() {
+                                            var selectBox = document.querySelector(".short-select-short-select");
+                                            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+                                            if (selectedValue == "1") {
+                                                window.location.href = "page/Shop.php";
+                                            } else if (selectedValue == "99") {
+                                                window.location.href = "http://yourdomain.com/name-z-to-a";
+                                            } else if (selectedValue == "4") {
+                                                window.location.href = "page/Shop.asc.php";
+                                            } else if (selectedValue == "5") {
+                                                window.location.href = "page/shop.desc.php";
+                                            }
                                         }
-                                    }
                                     </script>
-                                    <select class="short-select short-select-short-select nice-select"
-                                        onchange="redirect()">
+                                    <select class="short-select short-select-short-select nice-select" onchange="redirect()">
                                         <option value="1">Relevance</option>
                                         <option value="2">Name, A to Z</option>
                                         <option value="3">Name, Z to A</option>
@@ -123,114 +117,103 @@ $showssss = $classsss->show_productpriceasc();
                                     # code...
                         ?>
 
-                        <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                            <div class="mirora-product mb-md--10">
-                                <div class="product-img">
-                                    <img src="<?php echo 'data:image/png;base64,' . base64_encode($result['productimg']); ?>"
-                                        alt="Product" class="primary-image" />
-                                    <img src="<?php echo 'data:image/png;base64,' . base64_encode($result['productimg']); ?>"
-                                        alt="Product" class="secondary-image" />
-                                    <div class="product-img-overlay">
-                                        <span class="product-label discount">
-                                            -<?php echo $result['productsale']; ?>%
-                                        </span>
-                                        <a href="page/ProductDetail.php?productid=<?php echo $result['productid']; ?>"
-                                            class="btn btn-transparent btn-fullwidth btn-medium btn-style-1">Quick
-                                            View</a>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                                        <div class="mirora-product mb-md--10">
+                                            <div class="product-img">
+                                                <img src="<?php echo 'data:image/png;base64,' . base64_encode($result['productimg']); ?>" alt="Product" class="primary-image" />
+                                                <img src="<?php echo 'data:image/png;base64,' . base64_encode($result['productimg']); ?>" alt="Product" class="secondary-image" />
+                                                <div class="product-img-overlay">
+                                                    <span class="product-label discount">
+                                                        -<?php echo $result['productsale']; ?>%
+                                                    </span>
+                                                    <a href="page/ProductDetail.php?productid=<?php echo $result['productid']; ?>" class="btn btn-transparent btn-fullwidth btn-medium btn-style-1">Quick
+                                                        View</a>
+                                                </div>
+                                            </div>
+                                            <div class="product-content text-center">
+                                                <span><?php echo  $result['categoryname']; ?></span>
+                                                <h4><a href="page/ProductDetail.php?productid=<?php echo $result['productid']; ?>"><?php echo  $result['productname']; ?></a>
+                                                </h4>
+                                                <div class="product-price-wrapper">
+                                                    <span class="money">$
+                                                        <?php echo  number_format($result['productprice'] - ($result['productsale'] / 100 * $result['productprice'])); ?>.00</span>
+                                                    <span class="product-price-old">
+                                                        <span class="money">$<?php echo number_format($result['productprice']) ?>.00</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="mirora_product_action text-center position-absolute">
+                                                <div class="product-rating">
+                                                    <span>
+                                                        <i class="fa fa-star theme-star"></i>
+                                                        <i class="fa fa-star theme-star"></i>
+                                                        <i class="fa fa-star theme-star"></i>
+                                                        <i class="fa fa-star theme-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </span>
+                                                </div>
+                                                <p>
+                                                    It is a long established fact that a reader will be distracted by the
+                                                    readable content...
+                                                </p>
+                                                <div class="product-action">
+                                                    <a class="same-action" href="wishlist.html" title="wishlist">
+                                                        <i class="fa fa-heart-o"></i>
+                                                    </a>
+                                                    <a class="add_cart cart-item action-cart" href="cart.html" title="wishlist"><span>Add to cart</span></a>
+                                                    <a class="same-action compare-mrg" data-bs-toggle="modal" data-bs-target="#productModal" href="compare.html">
+                                                        <i class="fa fa-sliders fa-rotate-90"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mirora-product-list">
+                                            <div class="product-img">
+                                                <img src="http://localhost/asm/assets/img/products/1-450x450.jpg" alt="Product" class="primary-image" />
+                                                <div class="product-img-overlay">
+                                                    <span class="product-label discount">
+                                                        -7%
+                                                    </span>
+                                                    <a data-bs-toggle="modal" data-bs-target="#productModal" class="btn btn-transparent btn-fullwidth btn-medium btn-style-1">Quick
+                                                        View</a>
+                                                </div>
+                                            </div>
+                                            <div class="product-content">
+                                                <span>Cartier</span>
+                                                <h4><a href="product-details.html">Acer Aspire E 15</a></h4>
+                                                <div class="product-rating">
+                                                    <span>
+                                                        <i class="fa fa-star theme-star"></i>
+                                                        <i class="fa fa-star theme-star"></i>
+                                                        <i class="fa fa-star theme-star"></i>
+                                                        <i class="fa fa-star theme-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </span>
+                                                </div>
+                                                <p class="product-desc">
+                                                    It is a long established fact that a reader will be distracted by the
+                                                    readable content...
+                                                </p>
+                                                <div class="product-price-wrapper">
+                                                    <span class="money">$550.00</span>
+                                                    <span class="product-price-old">
+                                                        <span class="money">$700.00</span>
+                                                    </span>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a class="add_cart cart-item action-cart" href="cart.html" title="wishlist"><span>Add to cart</span></a>
+                                                    <a class="same-action" href="wishlist.html" title="wishlist">
+                                                        <i class="fa fa-heart-o"></i>
+                                                    </a>
+                                                    <a class="same-action compare-mrg" data-bs-toggle="modal" data-bs-target="#productModal" href="compare.html">
+                                                        <i class="fa fa-sliders fa-rotate-90"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="product-content text-center">
-                                    <span><?php echo  $result['categoryname']; ?></span>
-                                    <h4><a
-                                            href="page/ProductDetail.php?productid=<?php echo $result['productid']; ?>"><?php echo  $result['productname']; ?></a>
-                                    </h4>
-                                    <div class="product-price-wrapper">
-                                        <span class="money">$
-                                            <?php echo  number_format($result['productprice'] - ($result['productsale'] / 100 * $result['productprice'])); ?>.00</span>
-                                        <span class="product-price-old">
-                                            <span
-                                                class="money">$<?php echo number_format($result['productprice']) ?>.00</span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="mirora_product_action text-center position-absolute">
-                                    <div class="product-rating">
-                                        <span>
-                                            <i class="fa fa-star theme-star"></i>
-                                            <i class="fa fa-star theme-star"></i>
-                                            <i class="fa fa-star theme-star"></i>
-                                            <i class="fa fa-star theme-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                    </div>
-                                    <p>
-                                        It is a long established fact that a reader will be distracted by the
-                                        readable content...
-                                    </p>
-                                    <div class="product-action">
-                                        <a class="same-action" href="wishlist.html" title="wishlist">
-                                            <i class="fa fa-heart-o"></i>
-                                        </a>
-                                        <a class="add_cart cart-item action-cart" href="cart.html"
-                                            title="wishlist"><span>Add to cart</span></a>
-                                        <a class="same-action compare-mrg" data-bs-toggle="modal"
-                                            data-bs-target="#productModal" href="compare.html">
-                                            <i class="fa fa-sliders fa-rotate-90"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mirora-product-list">
-                                <div class="product-img">
-                                    <img src="http://localhost/asm/assets/img/products/1-450x450.jpg" alt="Product"
-                                        class="primary-image" />
-                                    <div class="product-img-overlay">
-                                        <span class="product-label discount">
-                                            -7%
-                                        </span>
-                                        <a data-bs-toggle="modal" data-bs-target="#productModal"
-                                            class="btn btn-transparent btn-fullwidth btn-medium btn-style-1">Quick
-                                            View</a>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <span>Cartier</span>
-                                    <h4><a href="product-details.html">Acer Aspire E 15</a></h4>
-                                    <div class="product-rating">
-                                        <span>
-                                            <i class="fa fa-star theme-star"></i>
-                                            <i class="fa fa-star theme-star"></i>
-                                            <i class="fa fa-star theme-star"></i>
-                                            <i class="fa fa-star theme-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                    </div>
-                                    <p class="product-desc">
-                                        It is a long established fact that a reader will be distracted by the
-                                        readable content...
-                                    </p>
-                                    <div class="product-price-wrapper">
-                                        <span class="money">$550.00</span>
-                                        <span class="product-price-old">
-                                            <span class="money">$700.00</span>
-                                        </span>
-                                    </div>
-                                    <div class="product-action">
-                                        <a class="add_cart cart-item action-cart" href="cart.html"
-                                            title="wishlist"><span>Add to cart</span></a>
-                                        <a class="same-action" href="wishlist.html" title="wishlist">
-                                            <i class="fa fa-heart-o"></i>
-                                        </a>
-                                        <a class="same-action compare-mrg" data-bs-toggle="modal"
-                                            data-bs-target="#productModal" href="compare.html">
-                                            <i class="fa fa-sliders fa-rotate-90"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <?php
+                                <?php
                                     $i++;
                                 }
                             } else {

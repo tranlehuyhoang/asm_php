@@ -22,8 +22,8 @@ if (isset($_GET['delid'])) {
             <div class="col-12 text-center">
                 <h1 class="page-title">Cart</h1>
                 <ul class="breadcrumb justify-content-center">
-                    <li><a href="page/home.php">Home</a></li>
-                    <li class="current"><a href="cart.html">Cart</a></li>
+                    <li><a href="<?php echo $host ?>page/Home.php">Home</a></li>
+                    <li class="current"><a href="<?php echo $host ?>page/Cart.php">Cart</a></li>
                 </ul>
             </div>
         </div>
@@ -58,32 +58,37 @@ if (isset($_GET['delid'])) {
                                                 while ($result = $show->fetch_assoc()) {
                                                     # code...
                                         ?>
-                                                    <tr>
-                                                        <td><a onclick="return confirm('Xác nhận xóa')" href="page/cart.php?delid=<?php echo $result['cartid']; ?>" class="delete" href="#"><i class="fa fa-times"></i></a></td>
-                                                        <td>
-                                                            <a href="product-details.html">
-                                                                <img src="<?php echo 'data:image/png;base64,' . base64_encode($result['productimg']); ?>" alt="product">
-                                                            </a>
-                                                        </td>
-                                                        <td class="wide-column">
-                                                            <h3><a href="product-details.html"><?php echo $result['productname'] ?></a>
-                                                            </h3>
-                                                        </td>
-                                                        <td class="cart-product-price">
-                                                            <strong>$<?php echo number_format($result['productprice']  - ($result['productprice'] * $result['productsale'] / 100)) ?>.00</strong>
-                                                        </td>
-                                                        <td>
-                                                            <div class="quantity">
-                                                                <input type="number" class="quantity-input" name="qty" id="pro_qty" value="<?php echo $result['cartquantity'] ?>" min="1">
-                                                                <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                                <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="cart-product-price">
-                                                            <strong>$<?php echo number_format(($result['productprice']  - ($result['productprice'] * $result['productsale'] / 100))  * $result['cartquantity']) ?>.00</strong>
-                                                        </td>
-                                                    </tr>
-                                                <?php
+                                        <tr>
+                                            <td><a onclick="return confirm('Xác nhận xóa')"
+                                                    href="page/cart.php?delid=<?php echo $result['cartid']; ?>"
+                                                    class="delete" href="#"><i class="fa fa-times"></i></a></td>
+                                            <td>
+                                                <a href="product-details.html">
+                                                    <img src="<?php echo 'data:image/png;base64,' . base64_encode($result['productimg']); ?>"
+                                                        alt="product">
+                                                </a>
+                                            </td>
+                                            <td class="wide-column">
+                                                <h3><a
+                                                        href="product-details.html"><?php echo $result['productname'] ?></a>
+                                                </h3>
+                                            </td>
+                                            <td class="cart-product-price">
+                                                <strong>$<?php echo number_format($result['productprice']  - ($result['productprice'] * $result['productsale'] / 100)) ?>.00</strong>
+                                            </td>
+                                            <td>
+                                                <div class="quantity">
+                                                    <input type="number" class="quantity-input" name="qty" id="pro_qty"
+                                                        value="<?php echo $result['cartquantity'] ?>" min="1">
+                                                    <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                                </div>
+                                            </td>
+                                            <td class="cart-product-price">
+                                                <strong>$<?php echo number_format(($result['productprice']  - ($result['productprice'] * $result['productsale'] / 100))  * $result['cartquantity']) ?>.00</strong>
+                                            </td>
+                                        </tr>
+                                        <?php
                                                     $i++;
                                                 }
                                             } else {
@@ -100,7 +105,8 @@ if (isset($_GET['delid'])) {
                                 <div class="col-12">
                                     <div class="apply-coupon-wrapper">
                                         <div class="form__group d-flex justify-content-between align-items-center">
-                                            <input type="text" name="coupon" id="coupon" class="form__input form__input--2" placeholder="Coupon Code">
+                                            <input type="text" name="coupon" id="coupon"
+                                                class="form__input form__input--2" placeholder="Coupon Code">
                                             <button type="submit" class="btn btn-medium btn-style-3">Apply
                                                 Coupon</button>
                                         </div>
@@ -134,8 +140,10 @@ if (isset($_GET['delid'])) {
                                             <td>
                                                 Flat Rate: <span class="price-ammount">$5.00</span>
                                                 <a href="#" class="expand-calculator">Calculate Shipping</a>
-                                                <form action="#" id="shipping-calculator" class="form shipping-form hide-in-default">
-                                                    <select name="shipping_country" id="shipping_country" class="form__input form__input--2">
+                                                <form action="#" id="shipping-calculator"
+                                                    class="form shipping-form hide-in-default">
+                                                    <select name="shipping_country" id="shipping_country"
+                                                        class="form__input form__input--2">
                                                         <option value="">Select a country…</option>
                                                         <option value="AF">Afghanistan</option>
                                                         <option value="AL">Albania</option>
@@ -184,8 +192,11 @@ if (isset($_GET['delid'])) {
                                                         <option value="GB">United Kingdom (UK)</option>
                                                         <option value="US">United States (US)</option>
                                                     </select>
-                                                    <input type="text" name="shipping_state" id="shipping_state" class="form__input form__input--2" placeholder="State / Country">
-                                                    <input type="text" name="shipping_zip" id="shipping_zip" class="form__input form__input--2" placeholder="Postcode / Zip">
+                                                    <input type="text" name="shipping_state" id="shipping_state"
+                                                        class="form__input form__input--2"
+                                                        placeholder="State / Country">
+                                                    <input type="text" name="shipping_zip" id="shipping_zip"
+                                                        class="form__input form__input--2" placeholder="Postcode / Zip">
                                                     <button type="submit" class="btn btn-medium btn-style-3">Update
                                                         Totals</button>
                                                 </form>
@@ -198,7 +209,7 @@ if (isset($_GET['delid'])) {
                                     </tbody>
                                 </table>
                             </div>
-                            <a href="page/checkout.php" class="btn btn-medium btn-style-3">Proceed to Checkout</a>
+                            <a href="checkout.php" class="btn btn-medium btn-style-3">Proceed to Checkout</a>
                         </div>
                     </div>
                 </div>

@@ -9,6 +9,7 @@ class Database
     public $user   = DB_USER;
     public $pass   = DB_PASS;
     public $dbname = DB_NAME;
+    public $post = DB_POST;
 
 
     public $link;
@@ -26,7 +27,7 @@ class Database
             $this->user,
             $this->pass,
             $this->dbname,
-            3309
+            $this->post
         );
         if (!$this->link) {
             $this->error = "Connection fail" . $this->link->connect_error;

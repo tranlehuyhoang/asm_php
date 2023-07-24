@@ -76,7 +76,7 @@
                     <div class="widget-product">
                         <div class="product">
                             <div class="product-img">
-                                <img src="assets/img/products/11-450x450.jpg" alt="products">
+                                <img src="<?php echo $host ?>assets/img/products/11-450x450.jpg" alt="products">
                             </div>
                             <div class="product-content">
                                 <div class="product-rating">
@@ -89,7 +89,7 @@
                                     </span>
                                 </div>
                                 <h4 class="product-title">
-                                    <a href="product-details.html" tabindex="0">Acer Aspire E 15</a>
+                                    <a href="" tabindex="0">Acer Aspire E 15</a>
                                 </h4>
                                 <div class="product-price-wrapper">
                                     <span class="money">$550.00</span>
@@ -101,7 +101,7 @@
                         </div>
                         <div class="product">
                             <div class="product-img">
-                                <img src="assets/img/products/11-450x450.jpg" alt="products">
+                                <img src="<?php echo $host ?>assets/img/products/11-450x450.jpg" alt="products">
                             </div>
                             <div class="product-content">
                                 <div class="product-rating">
@@ -114,7 +114,7 @@
                                     </span>
                                 </div>
                                 <h4 class="product-title">
-                                    <a href="product-details.html" tabindex="0">Acer Aspire E 15</a>
+                                    <a href="" tabindex="0">Acer Aspire E 15</a>
                                 </h4>
                                 <div class="product-price-wrapper">
                                     <span class="money">$550.00</span>
@@ -145,7 +145,7 @@
         <div class="row">
             <div class="col-12 text-center">
                 <p class="copyright-text">&copy; <a>Ps26819</a> </p>
-                <img src="assets/img/others/payment.png" alt="payment">
+                <img src="<?php echo $host ?>assets/img/others/payment.png" alt="payment">
             </div>
         </div>
     </div>
@@ -189,54 +189,65 @@
                         <div class="col-lg-5 col-md-6 mb-sm--20">
                             <div class="tab-content product-thumb-large">
                                 <div id="thumb1" class="tab-pane active show fade">
-                                    <img src="assets/img/products/1-1-600x600.jpg" alt="product thumb">
+                                    <img src="<?php echo $host ?>assets/img/products/1-1-600x600.jpg"
+                                        alt="product thumb">
                                 </div>
                                 <div id="thumb2" class="tab-pane fade">
-                                    <img src="assets/img/products/2-600x600.jpg" alt="product thumb">
+                                    <img src="<?php echo $host ?>assets/img/products/2-600x600.jpg" alt="product thumb">
                                 </div>
                                 <div id="thumb3" class="tab-pane fade">
-                                    <img src="assets/img/products/10-600x600.jpg" alt="product thumb">
+                                    <img src="<?php echo $host ?>assets/img/products/10-600x600.jpg"
+                                        alt="product thumb">
                                 </div>
                                 <div id="thumb4" class="tab-pane fade">
-                                    <img src="assets/img/products/11-600x600.jpg" alt="product thumb">
+                                    <img src="<?php echo $host ?>assets/img/products/11-600x600.jpg"
+                                        alt="product thumb">
                                 </div>
                                 <div id="thumb5" class="tab-pane fade">
-                                    <img src="assets/img/products/12-600x600.jpg" alt="product thumb">
+                                    <img src="<?php echo $host ?>assets/img/products/12-600x600.jpg"
+                                        alt="product thumb">
                                 </div>
                                 <div id="thumb6" class="tab-pane fade">
-                                    <img src="assets/img/products/13-600x600.jpg" alt="product thumb">
+                                    <img src="<?php echo $host ?>assets/img/products/13-600x600.jpg"
+                                        alt="product thumb">
                                 </div>
                             </div>
                             <div class="product-thumbnail">
                                 <div class="thumb-menu" id="modal-thumbmenu">
                                     <div class="thumb-menu-item">
                                         <a href="#thumb1" data-bs-toggle="tab" class="nav-link active">
-                                            <img src="assets/img/products/1-1-450x450.jpg" alt="product thumb">
+                                            <img src="<?php echo $host ?>assets/img/products/1-1-450x450.jpg"
+                                                alt="product thumb">
                                         </a>
                                     </div>
                                     <div class="thumb-menu-item">
                                         <a href="#thumb2" data-bs-toggle="tab" class="nav-link">
-                                            <img src="assets/img/products/2-2-450x450.jpg" alt="product thumb">
+                                            <img src="<?php echo $host ?>assets/img/products/2-2-450x450.jpg"
+                                                alt="product thumb">
                                         </a>
                                     </div>
                                     <div class="thumb-menu-item">
                                         <a href="#thumb3" data-bs-toggle="tab" class="nav-link">
-                                            <img src="assets/img/products/10-10-450x450.jpg" alt="product thumb">
+                                            <img src="<?php echo $host ?>assets/img/products/10-10-450x450.jpg"
+                                                alt="product thumb">
                                         </a>
                                     </div>
                                     <div class="thumb-menu-item">
                                         <a href="#thumb4" data-bs-toggle="tab" class="nav-link">
-                                            <img src="assets/img/products/11-11-450x450.jpg" alt="product thumb">
+                                            <img src="<?php echo $host ?>assets/img/products/11-11-450x450.jpg"
+                                                alt="product thumb">
                                         </a>
                                     </div>
                                     <div class="thumb-menu-item">
                                         <a href="#thumb5" data-bs-toggle="tab" class="nav-link">
-                                            <img src="assets/img/products/12-12-450x450.jpg" alt="product thumb">
+                                            <img src="<?php echo $host ?>assets/img/products/12-12-450x450.jpg"
+                                                alt="product thumb">
                                         </a>
                                     </div>
                                     <div class="thumb-menu-item">
                                         <a href="#thumb6" data-bs-toggle="tab" class="nav-link">
-                                            <img src="assets/img/products/13-13-450x450.jpg" alt="product thumb">
+                                            <img src="<?php echo $host ?>assets/img/products/13-13-450x450.jpg"
+                                                alt="product thumb">
                                         </a>
                                     </div>
                                 </div>
@@ -305,23 +316,23 @@
 
 </div>
 <!-- Main Wrapper End -->
-<base href="http://localhost/asmnew/">
+
 
 <!-- ************************* JS Files ************************* -->
 
 <!-- jQuery JS -->
-<script src="assets/js/vendor/jquery.min.js"></script>
+<script src="<?php echo $host ?>assets/js/vendor/jquery.min.js"></script>
 
 <!-- Bootstrap and Popper Bundle JS -->
-<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo $host ?>assets/js/bootstrap.bundle.min.js"></script>
 
 <!-- All Plugins Js -->
-<script src="assets/js/plugins.js"></script>
+<script src="<?php echo $host ?>assets/js/plugins.js"></script>
 <!-- Ajax Mail Js -->
-<script src="assets/js/ajax-mail.js"></script>
+<script src="<?php echo $host ?>assets/js/ajax-mail.js"></script>
 
 <!-- Main JS -->
-<script src="assets/js/main.js"></script>
+<script src="<?php echo $host ?>assets/js/main.js"></script>
 
 </body>
 
